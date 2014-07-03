@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="Maven" parent="Theme.AppCompat">
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+</resources>
