@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_maven"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:id="@+id/container_locales"
+            android:layout_height="fill_parent">
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:textColor="@color/color_letra"
+            android:layout_height="wrap_content"
+            android:text="Cargar Mas"
+            android:id="@+id/btn_cargar_mas"
+            android:textStyle="bold"
+            android:background="@drawable/holo_flat_button_plomo_claro" />
+
+    </LinearLayout>
+</ScrollView>

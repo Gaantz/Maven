@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="@drawable/holo_flat_button_plomo_claro"
+    android:id="@+id/card_tipo_cupon"
+    android:layout_height="75dp">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Beneficio Coporativo"
+            android:textColor="#7B6569"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:id="@+id/txt_nombre_cupon"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:lines="1"
+            android:maxLines="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:layout_gravity="center|left"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Almuerzo Ejecutivo 14 soles."
+            android:id="@+id/txt_descripcion_cupon"
+            android:textColor="#7B6569"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:lines="1"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/img_empresa_cupon"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/cat_comida" />
+
+</LinearLayout>
