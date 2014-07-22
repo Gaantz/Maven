@@ -1,36 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/fondo_maven"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="fill_horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/menu_ver"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="5dp" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:id="@+id/edt_buscar_categoria"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:drawableLeft="@drawable/menu_lupa"
+            android:hint="Categorìas,Tiendas"
+            android:padding="5dp"
+            android:background="@drawable/holo_flat_edittext_plomo_oscuro"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:id="@+id/container_locales"
             android:layout_height="fill_parent">
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:id="@+id/container_locales"
+                android:layout_height="fill_parent">
 
+
+            </LinearLayout>
+
+            <Button
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:textColor="@color/color_letra"
+                android:layout_height="wrap_content"
+                android:text="Cargar Mas"
+                android:id="@+id/btn_cargar_mas"
+                android:textStyle="bold"
+                android:background="@drawable/holo_flat_button_plomo_claro" />
         </LinearLayout>
+    </ScrollView>
 
-        <Button
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="8dp"
-            android:layout_width="match_parent"
-            android:textColor="@color/color_letra"
-            android:layout_height="wrap_content"
-            android:text="Cargar Mas"
-            android:id="@+id/btn_cargar_mas"
-            android:textStyle="bold"
-            android:background="@drawable/holo_flat_button_plomo_claro" />
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

@@ -27,7 +27,7 @@
 
         <activity
             android:name=".Maven"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

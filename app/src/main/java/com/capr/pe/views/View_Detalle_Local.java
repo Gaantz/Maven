@@ -3,17 +3,11 @@ package com.capr.pe.views;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.capr.pe.beans.Local_DTO;
-import com.capr.pe.fragments.Fragment_Information;
-import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
-import com.capr.pe.ws.RoundedTransformation;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -53,23 +53,23 @@ public class Fragment_Menu extends ListFragment {
 
             final JSONObject jsonObjectPregunta = new JSONObject();
             jsonObjectPregunta.put("titulo_menu","Preguntas");
-            jsonObjectPregunta.put("imagen_id_menu",R.drawable.abc_ic_clear);
+            jsonObjectPregunta.put("imagen_id_menu",R.drawable.ic_launcher);
 
             final JSONObject jsonObjectExplorar = new JSONObject();
             jsonObjectExplorar.put("titulo_menu","Explorar");
-            jsonObjectExplorar.put("imagen_id_menu",R.drawable.abc_ic_clear);
+            jsonObjectExplorar.put("imagen_id_menu",R.drawable.ic_launcher);
 
             final JSONObject jsonObjectListas = new JSONObject();
             jsonObjectListas.put("titulo_menu","Listas");
-            jsonObjectListas.put("imagen_id_menu",R.drawable.abc_ic_clear);
+            jsonObjectListas.put("imagen_id_menu",R.drawable.ic_launcher);
 
             final JSONObject jsonObjectCorp = new JSONObject();
             jsonObjectCorp.put("titulo_menu","Corporativo");
-            jsonObjectCorp.put("imagen_id_menu",R.drawable.abc_ic_clear);
+            jsonObjectCorp.put("imagen_id_menu",R.drawable.ic_launcher);
 
             final JSONObject jsonObjectPerfil = new JSONObject();
             jsonObjectPerfil.put("titulo_menu","Perfil");
-            jsonObjectPerfil.put("imagen_id_menu",R.drawable.abc_ic_clear);
+            jsonObjectPerfil.put("imagen_id_menu",R.drawable.ic_launcher);
 
 
             Menu_DTO menu_dtoPregunta = new Menu_DTO(jsonObjectPregunta);

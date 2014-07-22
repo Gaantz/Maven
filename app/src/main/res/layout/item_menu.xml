@@ -14,8 +14,7 @@
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:layout_marginLeft="10dp"
-        android:layout_gravity="center"
-        android:src="@drawable/abc_ic_cab_done_holo_light" />
+        android:layout_gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"

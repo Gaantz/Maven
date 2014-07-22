@@ -13,7 +13,7 @@ public class Local_DTO implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    private JSONObject jsonObject;
+    private transient JSONObject jsonObject;
 
     public Local_DTO(JSONObject jsonObject) {
         this.jsonObject = jsonObject;

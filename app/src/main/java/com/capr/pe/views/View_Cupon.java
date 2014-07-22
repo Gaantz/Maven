@@ -10,7 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.capr.pe.beans.Cupon_DTO;
-import com.capr.pe.beans.Local_DTO;
+import com.capr.pe.fragments.Fragment_Detalle_Cupon;
+import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
 import com.capr.pe.ws.RoundedTransformation;
 import com.squareup.picasso.Picasso;
@@ -24,6 +25,7 @@ import org.json.JSONObject;
 public class View_Cupon extends RelativeLayout implements View.OnClickListener{
 
     private Cupon_DTO cupon_dto;
+    private String nombre_local;
 
     public View_Cupon(Context context, Cupon_DTO cupon_dto) {
         super(context);
@@ -46,6 +48,8 @@ public class View_Cupon extends RelativeLayout implements View.OnClickListener{
     private void initView() {
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.view_cupon, this, true);
+        setTag(cupon_dto);
+        setOnClickListener(this);
 
         try {
             JSONObject jsonObject = cupon_dto.getJsonObject();
@@ -89,6 +93,10 @@ public class View_Cupon extends RelativeLayout implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        ((Maven)getContext()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Detalle_Cupon.newInstance((Cupon_DTO) getTag(),nombre_local),"frag_detalle_local").addToBackStack("a").commit();
+    }
 
+    public void setNombre_local(String nombre_local) {
+        this.nombre_local = nombre_local;
     }
 }

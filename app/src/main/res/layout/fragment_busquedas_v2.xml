@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_maven">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="fill_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Buscar"
+                    android:id="@+id/acb_titulo_local"
+                    android:gravity="right"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:layout_gravity="right|center"
+                    android:layout_toStartOf="@+id/imageView"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/acb_img_cerrar"
+                    android:src="@drawable/menu_cerrar"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_buscar_categoria"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:drawableLeft="@drawable/menu_lupa"
+            android:hint="Categorìas,Tiendas,etc"
+            android:padding="5dp"
+            android:background="@drawable/holo_flat_edittext_plomo_oscuro" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_height="35dp"
+            android:id="@+id/edt_buscar_distrito"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="Ditritos"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:layout_marginRight="5dp"
+            android:drawableLeft="@drawable/menu_distritos"
+            android:background="@drawable/holo_flat_edittext_plomo_oscuro"
+            android:layout_marginBottom="5dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView">
+
+            <LinearLayout
+                android:id="@+id/container_busquedas_sugerencias"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

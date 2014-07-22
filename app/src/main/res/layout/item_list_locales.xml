@@ -93,39 +93,42 @@
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/circulo_verde"
                         android:layout_gravity="center"
                         android:scaleType="centerCrop"
                         android:adjustViewBounds="true"
-                        android:id="@+id/imageView0"
-                        android:layout_weight="1" />
+                        android:id="@+id/img_cupon_verde"
+                        android:layout_weight="1"
+                        android:visibility="visible" />
 
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/circulo_celeste"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
-                        android:id="@+id/imageView1"
-                        android:layout_weight="1" />
+                        android:id="@+id/img_cupon_azul"
+                        android:layout_weight="1"
+                        android:visibility="visible" />
 
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/circulo_plomo"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
-                        android:id="@+id/imageView2"
-                        android:layout_weight="1" />
+                        android:id="@+id/img_cupon_plomo"
+                        android:layout_weight="1"
+                        android:visibility="visible" />
 
                 </LinearLayout>
             </LinearLayout>

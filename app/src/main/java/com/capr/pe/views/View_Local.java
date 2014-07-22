@@ -8,16 +8,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.capr.pe.beans.Local_DTO;
-import com.capr.pe.fragments.Fragment_Information;
-import com.capr.pe.fragments.Fragment_Local;
+import com.capr.pe.fragments.Fragment_Detalle_Local;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.Util_Categorias;
 import com.capr.pe.ws.RoundedTransformation;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -60,9 +60,24 @@ public class View_Local extends RelativeLayout implements View.OnClickListener{
             double distance = round(Double.parseDouble(jsonObject.getString("Distancia")), 2);
             ((TextView)findViewById(R.id.txt_distancia_local)).setText(String.valueOf(distance) + " mts.");
 
-            Log.e("LogoEmpresa",jsonObject.getString("LogoEmpresa"));
-            //Picasso.with(getContext()).load(jsonObject.getString("LogoEmpresa")).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
+            Picasso.with(getContext()).load(Util_Categorias.getImageCateogry(Integer.parseInt(jsonObject.getString("idCategoria")))).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
 
+            String logoempresa = jsonObject.getString("LogoEmpresa");
+            if(!logoempresa.equals("")){
+                //Picasso.with(getContext()).load(logoempresa).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
+            }
+
+            JSONArray jsonArray = jsonObject.getJSONArray("ListaCupones");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                String beneficio = jsonArray.getJSONObject(i).getString("Beneficio");
+                if(beneficio.equals("0")){
+                    ((ImageView) findViewById(R.id.img_cupon_verde)).setVisibility(View.VISIBLE);
+                }else if(beneficio.equals("1")){
+                    ((ImageView)findViewById(R.id.img_cupon_azul)).setVisibility(View.VISIBLE);
+                }else if(beneficio.equals("2")){
+                    ((ImageView)findViewById(R.id.img_cupon_plomo)).setVisibility(View.VISIBLE);
+                }
+            }
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -72,7 +87,7 @@ public class View_Local extends RelativeLayout implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        ((Maven)getContext()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Information.newInstance((Local_DTO)getTag()),"frag_detalle_local").addToBackStack("a").commit();
+        ((Maven)getContext()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Detalle_Local.newInstance((Local_DTO) getTag()),"fragment_informacion").addToBackStack("a").commit();
     }
 
     public static double round(double value, int places) {

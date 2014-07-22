@@ -10,7 +10,7 @@ import org.json.JSONObject;
  */
 public class Menu_DTO {
 
-    private JSONObject jsonObjectMenu;
+    private transient JSONObject jsonObjectMenu;
 
     public Menu_DTO(JSONObject jsonObjectMenu) {
         this.jsonObjectMenu = jsonObjectMenu;

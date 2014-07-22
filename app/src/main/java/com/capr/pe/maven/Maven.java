@@ -1,25 +1,27 @@
 package com.capr.pe.maven;
 
-import android.location.Location;
+import android.os.Build;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import android.support.v4.view.WindowCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.capr.pe.fragments.Fragment_Detalle_Local;
 import com.capr.pe.fragments.Fragment_Local;
 import com.capr.pe.fragments.Fragment_Menu;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationRequest;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivity;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+
+import java.lang.reflect.Field;
+import java.util.List;
 
 
 public class Maven extends SlidingActivity {
@@ -36,17 +38,8 @@ public class Maven extends SlidingActivity {
         setContentView(R.layout.maven);
         setBehindContentView(R.layout.menu_frame);
 
-        ActionBar actionBar = getSupportActionBar();
-
-        LayoutInflater mInflater = LayoutInflater.from(this);
-        View mCustomView = mInflater.inflate(R.layout.view_action_bar,null,true);
-        actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setCustomView(mCustomView);
-
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Local.newInstance()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Local.newInstance(),"fragment_locales").commit();
             getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, Fragment_Menu.newInstance()).commit();
         } else {
             fragment_menu = (Fragment_Menu) this.getSupportFragmentManager().findFragmentById(R.id.menu_frame);
@@ -55,7 +48,6 @@ public class Maven extends SlidingActivity {
 
         SlidingMenu sm = getSlidingMenu();
         sm.setShadowWidthRes(R.dimen.navigation_drawer_width);
-        sm.setShadowDrawable(R.drawable.shadow);
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeDegree(0.35f);
         sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
@@ -90,5 +82,15 @@ public class Maven extends SlidingActivity {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         view.requestFocus();
         inputMethodManager.showSoftInput(view, 0);
+    }
+
+    public Fragment getVisibleFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        List<Fragment> fragments = fragmentManager.getFragments();
+        for(Fragment fragment : fragments){
+            if(fragment != null && fragment.isVisible())
+                return fragment;
+        }
+        return null;
     }
 }

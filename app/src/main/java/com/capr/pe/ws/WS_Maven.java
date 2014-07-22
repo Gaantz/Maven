@@ -8,4 +8,8 @@ public class WS_Maven {
 
     public static final String WS_OBTENER_LOCALES_CERCANOS = "http://dipoo.carbono.us/index.php/localfoursquare/ObtenerLocalesCercanos";
     public static final String WS_OBTENER_CATEGORIAS = "http://dipoo.carbono.us/index.php/empresa/categorias";
+    public static final String WS_OBTENER_DISTRITOS = "http://dipoo.carbono.us/index.php/ubigeo/all";
+    public static final String WS_REGISTRAR_USUARIO = "http://dipoo.carbono.us/index.php/usuario/registrar";
+    public static final String WS_LOGEAR_USUARIO_FACEBOOK = "http://dipoo.carbono.us/index.php/usuario/loginFacebook";
+    public static final String WS_LOGEAR_USUARIO_EMAIL = "http://dipoo.carbono.us/index.php/usuario/login";
 }

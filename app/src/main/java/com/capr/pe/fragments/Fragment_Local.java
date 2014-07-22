@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.capr.pe.beans.Local_DTO;
+import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
 import com.capr.pe.operation.Operation_Locales_Cercanos;
 import com.capr.pe.util.Util_GPS;
@@ -48,7 +51,6 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         linearLayout = (LinearLayout) getView().findViewById(R.id.container_locales);
 
         Operation_Locales_Cercanos operation_locales_cercanos = new Operation_Locales_Cercanos(getActivity());
@@ -66,11 +68,12 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
             }
         });
 
-        ((Button)getView().findViewById(R.id.btn_cargar_mas)).setOnClickListener(this);
+        ((Button) getView().findViewById(R.id.btn_cargar_mas)).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+       ((Maven)getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Busqueda.newInstance(),"fragment_busqueda").addToBackStack("a").commit();
 
         page++;
 
@@ -89,4 +92,24 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
             }
         });
     }
+
+    /*
+    private void changeActionBar() {
+        ActionBar actionBar = ((Maven) getActivity()).getSupportActionBar();
+
+        LayoutInflater mInflater = LayoutInflater.from(getActivity());
+        View mCustomView = mInflater.inflate(R.layout.view_action_bar, null, true);
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(mCustomView);
+
+        mCustomView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((Maven)getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Busqueda.newInstance(),"fragment_busqueda").addToBackStack("a").commit();
+            }
+        });
+    }
+    */
 }

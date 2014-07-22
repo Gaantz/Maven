@@ -12,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.capr.pe.beans.Categoria_DTO;
+import com.capr.pe.maven.R;
 import com.capr.pe.ws.WS_Maven;
 
 import org.json.JSONArray;
@@ -50,11 +51,10 @@ public class Operation_Categorias {
                             boolean status = true;
 
                             for (int i = 0; i < responseJsonArray.length(); i++) {
-                                Log.e("CATEGORIES", responseJsonArray.getJSONObject(i).toString());
-                                Categoria_DTO categoria_dto = new Categoria_DTO(responseJsonArray.getJSONObject(i));
+                                JSONObject jsonObject = responseJsonArray.getJSONObject(i);
+                                Categoria_DTO categoria_dto = new Categoria_DTO(jsonObject.getString("Nombre"), "230", R.drawable.cat_market);
                                 categoria_dtos.add(categoria_dto);
                             }
-
                             interface_operation_categorias.getCategoryes(status, categoria_dtos);
 
                         } catch (JSONException e) {
@@ -83,7 +83,7 @@ public class Operation_Categorias {
         this.interface_operation_categorias = interface_operation_categorias;
     }
 
-    private interface Interface_Operation_Categorias {
+    public interface Interface_Operation_Categorias {
         void getCategoryes(boolean status, ArrayList<Categoria_DTO> categoria_dtos);
     }
 }
