@@ -48,6 +48,7 @@ public class Operation_Distritos {
                             JSONArray responseJsonArray = responseJsonObject.getJSONArray("city");
 
                             ArrayList<Distrito_DTO> distrito_dtos = new ArrayList<Distrito_DTO>();
+                            distrito_dtos.add(new Distrito_DTO("Mi ubicación","-1"));
                             boolean status = true;
 
                             for (int i = 0; i < responseJsonArray.length(); i++) {

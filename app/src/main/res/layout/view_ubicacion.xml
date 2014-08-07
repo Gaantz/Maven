@@ -10,13 +10,16 @@
 
 
     <TextView
+        android:padding="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Av Javier Prado"
         android:textColor="#7B6569"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/icono_direccion"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:gravity="left|center"
         android:id="@+id/txt_direccion"
         android:layout_weight="1"
         android:textSize="16sp" />
@@ -24,20 +27,26 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left|center"
         android:layout_gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Hoy de 8:00 AM - 20:00 PM"
         android:id="@+id/txt_horario"
         android:textColor="#7B6569"
+        android:padding="2dp"
         android:layout_weight="1"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/icono_horario"
         android:textSize="16sp" />
 
     <TextView
+        android:padding="2dp"
         android:layout_width="match_parent"
-        android:gravity="center"
+        android:gravity="left|center"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/icono_telefono"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="+51 987986309"
         android:id="@+id/txt_telefono"

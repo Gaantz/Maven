@@ -7,7 +7,7 @@
     android:layout_height="fill_parent">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -17,36 +17,39 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:src="@drawable/menu_ver"
+            android:id="@+id/imgopenmenu"
+            android:src="@drawable/menu_lateral"
             android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:layout_gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginRight="5dp" />
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
 
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:id="@+id/edt_buscar_categoria"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:drawableLeft="@drawable/menu_lupa"
-            android:hint="Categorìas,Tiendas"
+            android:hint="Cerca de mi, Restaurantes..."
             android:padding="5dp"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColorHint="#8A8A8D"
+            android:textColor="#8A8A8D"
+            android:imeOptions="actionSearch"
+            android:editable="false"
+            android:textSize="16sp"
             android:background="@drawable/holo_flat_edittext_plomo_oscuro"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_toEndOf="@+id/imageView"
-            android:layout_toRightOf="@+id/imageView" />
-    </RelativeLayout>
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
+        android:scrollbars="none"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView">
 
@@ -65,9 +68,9 @@
             </LinearLayout>
 
             <Button
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:textColor="@color/color_letra"
                 android:layout_height="wrap_content"

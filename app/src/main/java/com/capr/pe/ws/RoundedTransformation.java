@@ -21,6 +21,10 @@ public class RoundedTransformation implements com.squareup.picasso.Transformatio
         this.margin = margin;
     }
 
+    /*
+    Picasso.with(getContext()).load(resourceid).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
+     */
+
     @Override
     public Bitmap transform(final Bitmap source) {
         final Paint paint = new Paint();

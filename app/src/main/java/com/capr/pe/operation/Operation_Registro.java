@@ -50,7 +50,9 @@ public class Operation_Registro {
                             int resultado = responseJsonObject.getInt("resultado");
                             if(resultado == 1){
                                 Usuario_DTO usuario_dto = new Usuario_DTO(responseJsonObject.getJSONObject("datos_usuario"));
-                                interface_operation_registro.registrarUsuario(true,usuario_dto);
+                                interface_operation_registro.registrarUsuario(true,usuario_dto,"Registro Exitoso");
+                            }else{
+                                interface_operation_registro.registrarUsuario(false,null,responseJsonObject.getString("mensaje"));
                             }
 
                         } catch (JSONException e) {
@@ -101,6 +103,6 @@ public class Operation_Registro {
     }
 
     public interface Interface_Operation_Registro {
-        void registrarUsuario(boolean state,Usuario_DTO usuario_dto);
+        void registrarUsuario(boolean state,Usuario_DTO usuario_dto,String mensaje);
     }
 }

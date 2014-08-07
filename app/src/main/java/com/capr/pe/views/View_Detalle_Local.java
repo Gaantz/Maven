@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.capr.pe.beans.Local_DTO;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.Util_Fonts;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,5 +63,9 @@ public class View_Detalle_Local extends RelativeLayout {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        ((TextView)findViewById(R.id.txt_direccion)).setTypeface(Util_Fonts.setPNALight(getContext()));
+        ((TextView)findViewById(R.id.txt_telefono)).setTypeface(Util_Fonts.setPNALight(getContext()));
+        ((TextView)findViewById(R.id.txt_horario)).setTypeface(Util_Fonts.setPNALight(getContext()));
     }
 }

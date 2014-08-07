@@ -52,7 +52,7 @@ public class Operation_Categorias {
 
                             for (int i = 0; i < responseJsonArray.length(); i++) {
                                 JSONObject jsonObject = responseJsonArray.getJSONObject(i);
-                                Categoria_DTO categoria_dto = new Categoria_DTO(jsonObject.getString("Nombre"), "230", R.drawable.cat_market);
+                                Categoria_DTO categoria_dto = new Categoria_DTO(jsonObject.getString("Nombre"), "230",Integer.parseInt(jsonObject.getString("Id")));
                                 categoria_dtos.add(categoria_dto);
                             }
                             interface_operation_categorias.getCategoryes(status, categoria_dtos);

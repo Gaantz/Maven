@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.capr.pe.beans.Cupon_DTO;
 import com.capr.pe.beans.Local_DTO;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.views.View_Cabecera_Local;
 import com.capr.pe.views.View_Cupon;
 import com.capr.pe.views.View_Detalle_Local;
@@ -50,7 +52,7 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
     public static final Fragment_Detalle_Local newInstance(Local_DTO local_dto) {
         Fragment_Detalle_Local fragment_detalleLocal = new Fragment_Detalle_Local();
         Bundle bundle = new Bundle();
-        bundle.putSerializable("local_dto", local_dto);
+        bundle.putParcelable("local_dto", local_dto);
         fragment_detalleLocal.setArguments(bundle);
         return fragment_detalleLocal;
     }
@@ -58,7 +60,7 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        local_dto = (Local_DTO) getArguments().getSerializable("local_dto");
+        local_dto = (Local_DTO) getArguments().getParcelable("local_dto");
         jsonObject = local_dto.getJsonObject();
     }
 
@@ -135,6 +137,42 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
 
         linearLayoutInformacion.addView(view_cabecera_local);
         linearLayoutDetalleInformacion.addView(view_detalle_local);
+
+        ((TextView)getView().findViewById(R.id.acb_titulo_local)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+
+        /*
+        Back Button Fragment
+         */
+        Fragment_Detalle_Local.this.getView().setFocusableInTouchMode(true);
+        Fragment_Detalle_Local.this.getView().requestFocus();
+        Fragment_Detalle_Local.this.getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    FragmentManager manager = ((Maven)getActivity()).getSupportFragmentManager();
+                    FragmentTransaction trans = manager.beginTransaction();
+                    trans.remove(Fragment_Detalle_Local.this);
+                    trans.commit();
+                    manager.popBackStack();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        /*
+        Button Cerrar
+         */
+        getView().findViewById(R.id.acb_img_cerrar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = ((Maven)getActivity()).getSupportFragmentManager();
+                FragmentTransaction trans = manager.beginTransaction();
+                trans.remove(Fragment_Detalle_Local.this);
+                trans.commit();
+                manager.popBackStack();
+            }
+        });
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.capr.pe.beans.Local_DTO;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
 import com.capr.pe.operation.Operation_Locales_Cercanos;
+import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.util.Util_GPS;
 import com.capr.pe.views.View_Local;
 import com.google.android.gms.common.ConnectionResult;
@@ -51,6 +53,7 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        changeActionBar();
         linearLayout = (LinearLayout) getView().findViewById(R.id.container_locales);
 
         Operation_Locales_Cercanos operation_locales_cercanos = new Operation_Locales_Cercanos(getActivity());
@@ -73,8 +76,6 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-       ((Maven)getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Busqueda.newInstance(),"fragment_busqueda").addToBackStack("a").commit();
-
         page++;
 
         Operation_Locales_Cercanos operation_locales_cercanos = new Operation_Locales_Cercanos(getActivity());
@@ -93,23 +94,22 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
         });
     }
 
-    /*
     private void changeActionBar() {
-        ActionBar actionBar = ((Maven) getActivity()).getSupportActionBar();
 
-        LayoutInflater mInflater = LayoutInflater.from(getActivity());
-        View mCustomView = mInflater.inflate(R.layout.view_action_bar, null, true);
-        actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setCustomView(mCustomView);
+        getView().findViewById(R.id.imgopenmenu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((Maven)getActivity()).sm_menu.toggle();
+            }
+        });
 
-        mCustomView.setOnClickListener(new View.OnClickListener() {
+        TextView edtbuscar = (TextView)getView().findViewById(R.id.edt_buscar_categoria);
+        edtbuscar.setTypeface(Util_Fonts.setPNALight(getActivity()));
+        edtbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((Maven)getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Busqueda.newInstance(),"fragment_busqueda").addToBackStack("a").commit();
             }
         });
     }
-    */
 }

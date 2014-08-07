@@ -13,6 +13,7 @@ import com.capr.pe.beans.Cupon_DTO;
 import com.capr.pe.fragments.Fragment_Detalle_Cupon;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.ws.RoundedTransformation;
 import com.squareup.picasso.Picasso;
 
@@ -56,11 +57,29 @@ public class View_Cupon extends RelativeLayout implements View.OnClickListener{
 
             //Tipo de Beneficios
             String tipoBeneficio = jsonObject.getString("Beneficio");
+
             if(tipoBeneficio.equals("0")){
-                setDetailCupon(R.color.color_blanco,jsonObject);
+                TextView textViewName = (TextView) findViewById(R.id.txt_nombre_cupon);
+                TextView textViewDesc = (TextView) findViewById(R.id.txt_descripcion_cupon);
+
+                textViewName.setText("Oferta Especial");
+                textViewDesc.setText(jsonObject.getString("Nombre"));
+
+                textViewName.setTypeface(Util_Fonts.setPNASemiBold(getContext()));
+                textViewDesc.setTypeface(Util_Fonts.setPNALight(getContext()));
+
                 ((LinearLayout)findViewById(R.id.card_tipo_cupon)).setBackgroundResource(R.drawable.holo_flat_button_azul_claro);
+
             }else if(tipoBeneficio.equals("1")){
-                setDetailCupon(R.color.color_blanco,jsonObject);
+                TextView textViewName = (TextView) findViewById(R.id.txt_nombre_cupon);
+                TextView textViewDesc = (TextView) findViewById(R.id.txt_descripcion_cupon);
+
+                textViewName.setText("Oferta en Tienda");
+                textViewDesc.setText(jsonObject.getString("Nombre"));
+
+                textViewName.setTypeface(Util_Fonts.setPNASemiBold(getContext()));
+                textViewDesc.setTypeface(Util_Fonts.setPNALight(getContext()));
+
                 ((LinearLayout)findViewById(R.id.card_tipo_cupon)).setBackgroundResource(R.drawable.holo_flat_button_verde_claro);
             }
 
@@ -72,6 +91,7 @@ public class View_Cupon extends RelativeLayout implements View.OnClickListener{
     }
 
     private void setDetailCupon(int color,JSONObject jsonObject) throws JSONException{
+
         String nombreCupon = jsonObject.getString("Nombre");
         TextView textViewName = (TextView) findViewById(R.id.txt_nombre_cupon);
         textViewName.setTextColor(getResources().getColor(color));

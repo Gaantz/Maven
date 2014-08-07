@@ -14,6 +14,7 @@ import com.capr.pe.fragments.Fragment_Detalle_Local;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
 import com.capr.pe.util.Util_Categorias;
+import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.ws.RoundedTransformation;
 import com.squareup.picasso.Picasso;
 
@@ -48,7 +49,7 @@ public class View_Local extends RelativeLayout implements View.OnClickListener{
 
     private void initView(){
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        layoutInflater.inflate(R.layout.item_list_locales, this, true);
+        layoutInflater.inflate(R.layout.item_list_locales,this,true);
 
         try {
             JSONObject jsonObject = local_dto.getJsonObject();
@@ -57,14 +58,25 @@ public class View_Local extends RelativeLayout implements View.OnClickListener{
             ((TextView)findViewById(R.id.txt_direccion_local)).setText(jsonObject.getString("Direccion"));
             ((TextView)findViewById(R.id.txt_categoria_local)).setText(jsonObject.getString("NombreCategoria"));
 
+
+
             double distance = round(Double.parseDouble(jsonObject.getString("Distancia")), 2);
             ((TextView)findViewById(R.id.txt_distancia_local)).setText(String.valueOf(distance) + " mts.");
 
-            Picasso.with(getContext()).load(Util_Categorias.getImageCateogry(Integer.parseInt(jsonObject.getString("idCategoria")))).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
+            /*
+            SET FONTS
+             */
+            ((TextView)findViewById(R.id.txt_nombre_local)).setTypeface(Util_Fonts.setPNASemiBold(getContext()));
+            ((TextView)findViewById(R.id.txt_direccion_local)).setTypeface(Util_Fonts.setPNALight(getContext()));
+            ((TextView)findViewById(R.id.txt_categoria_local)).setTypeface(Util_Fonts.setPNACursivaLight(getContext()));
+            ((TextView)findViewById(R.id.txt_distancia_local)).setTypeface(Util_Fonts.setPNALight(getContext()));
+
+            int resourceid = Util_Categorias.getImageCateogry(Integer.parseInt(jsonObject.getString("idCategoria")));
+            Picasso.with(getContext()).load(resourceid).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
 
             String logoempresa = jsonObject.getString("LogoEmpresa");
             if(!logoempresa.equals("")){
-                //Picasso.with(getContext()).load(logoempresa).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
+                //Picasso.with(getContext()).load(resourceid).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
             }
 
             JSONArray jsonArray = jsonObject.getJSONArray("ListaCupones");

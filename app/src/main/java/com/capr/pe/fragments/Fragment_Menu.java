@@ -3,12 +3,21 @@ package com.capr.pe.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.capr.pe.adapters.Adapter_Menu;
 import com.capr.pe.beans.Menu_DTO;
+import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
+import com.capr.pe.session.Session_Manager;
+import com.capr.pe.util.Util_Fonts;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,9 +27,7 @@ import java.util.ArrayList;
 /**
  * Created by Gantz on 5/07/14.
  */
-public class Fragment_Menu extends ListFragment {
-
-    private Adapter_Menu adapter_menu;
+public class Fragment_Menu extends Fragment implements View.OnClickListener {
 
     public static final Fragment_Menu newInstance() {
         return new Fragment_Menu();
@@ -29,9 +36,6 @@ public class Fragment_Menu extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ArrayList<Menu_DTO> menu_dtos = getMenuItems();
-        adapter_menu = new Adapter_Menu(getActivity(),menu_dtos);
-        setListAdapter(adapter_menu);
     }
 
     @Override
@@ -40,54 +44,62 @@ public class Fragment_Menu extends ListFragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getListView().setDivider(null);
-        getListView().setDividerHeight(0);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_menu_v2, container, false);
     }
 
-    private ArrayList<Menu_DTO> getMenuItems() {
-        ArrayList<Menu_DTO> menu_dtos = new ArrayList<Menu_DTO>();
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        try {
+        initStyles();
 
-            final JSONObject jsonObjectPregunta = new JSONObject();
-            jsonObjectPregunta.put("titulo_menu","Preguntas");
-            jsonObjectPregunta.put("imagen_id_menu",R.drawable.ic_launcher);
+        LinearLayout optionpreguntas = (LinearLayout) getView().findViewById(R.id.option_preguntas);
+        LinearLayout optionexplorar = (LinearLayout) getView().findViewById(R.id.option_explorar);
+        LinearLayout optionperfil = (LinearLayout) getView().findViewById(R.id.option_perfil);
+        LinearLayout optioncorporativo = (LinearLayout) getView().findViewById(R.id.option_corporativo);
 
-            final JSONObject jsonObjectExplorar = new JSONObject();
-            jsonObjectExplorar.put("titulo_menu","Explorar");
-            jsonObjectExplorar.put("imagen_id_menu",R.drawable.ic_launcher);
+        optionpreguntas.setOnClickListener(this);
+        optionexplorar.setOnClickListener(this);
+        optionperfil.setOnClickListener(this);
+        optioncorporativo.setOnClickListener(this);
+    }
 
-            final JSONObject jsonObjectListas = new JSONObject();
-            jsonObjectListas.put("titulo_menu","Listas");
-            jsonObjectListas.put("imagen_id_menu",R.drawable.ic_launcher);
-
-            final JSONObject jsonObjectCorp = new JSONObject();
-            jsonObjectCorp.put("titulo_menu","Corporativo");
-            jsonObjectCorp.put("imagen_id_menu",R.drawable.ic_launcher);
-
-            final JSONObject jsonObjectPerfil = new JSONObject();
-            jsonObjectPerfil.put("titulo_menu","Perfil");
-            jsonObjectPerfil.put("imagen_id_menu",R.drawable.ic_launcher);
-
-
-            Menu_DTO menu_dtoPregunta = new Menu_DTO(jsonObjectPregunta);
-            Menu_DTO menu_dtoExplorar = new Menu_DTO(jsonObjectExplorar);
-            Menu_DTO menu_dtoListas = new Menu_DTO(jsonObjectListas);
-            Menu_DTO menu_dtoCorp = new Menu_DTO(jsonObjectCorp);
-            Menu_DTO menu_dtoPerfil = new Menu_DTO(jsonObjectPerfil);
-
-            menu_dtos.add(menu_dtoPregunta);
-            menu_dtos.add(menu_dtoExplorar);
-            menu_dtos.add(menu_dtoListas);
-            menu_dtos.add(menu_dtoCorp);
-            menu_dtos.add(menu_dtoPerfil);
-
-        }catch (JSONException e){
-            e.printStackTrace();
+    @Override
+    public void onClick(View v) {
+        ((Maven)getActivity()).getSlidingMenu().setMode(SlidingMenu.LEFT);
+        boolean session = new Session_Manager(getActivity()).isLogin();
+        switch (v.getId()) {
+            case R.id.option_preguntas:
+                ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Entrar.newInstance(), "fragment_entrar").commit();
+                break;
+            case R.id.option_explorar:
+                ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Local.newInstance(), "fragment_explorar").commit();
+                break;
+            case R.id.option_perfil:
+                if (session) {
+                    ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Perfil.newInstance(), "fragment_perfil").commit();
+                } else {
+                    ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Entrar.newInstance(), "fragment_entrar").commit();
+                }
+                break;
+            case R.id.option_corporativo:
+                if (session) {
+                    ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Corporativo.newInstance(), "fragment_perfil").commit();
+                } else {
+                    ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Entrar.newInstance(), "fragment_entrar").commit();
+                }
+                break;
         }
+        ((Maven) getActivity()).sm_menu.toggle();
+    }
 
-        return menu_dtos;
+    private void initStyles() {
+        ((TextView) getView().findViewById(R.id.fragment_menu_maven)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+        ((TextView) getView().findViewById(R.id.fragment_menu_preguntas)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+        ((TextView) getView().findViewById(R.id.fragment_menu_explorar)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+        ((TextView) getView().findViewById(R.id.fragment_menu_listas)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+        ((TextView) getView().findViewById(R.id.fragment_menu_corporativo)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+        ((TextView) getView().findViewById(R.id.fragment_menu_perfil)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
     }
 }

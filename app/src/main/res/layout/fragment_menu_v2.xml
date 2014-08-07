@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00C572">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="30dp"
+        android:layout_marginLeft="40dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:layout_height="35dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/bigote_maven"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Maven"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/color_blanco"
+            android:id="@+id/fragment_menu_maven" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:id="@+id/option_preguntas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:src="@drawable/preguntas"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preguntas"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:textColor="@color/color_blanco"
+            android:id="@+id/fragment_menu_preguntas" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/option_explorar"
+        android:padding="10dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView3"
+            android:src="@drawable/explorar"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Explorar"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left"
+            android:textColor="@color/color_blanco"
+            android:id="@+id/fragment_menu_explorar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView6"
+            android:src="@drawable/listas"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Listas"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:textColor="@color/color_blanco"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/fragment_menu_listas" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/option_corporativo"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView7"
+            android:src="@drawable/corporativo"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Corporativo"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:textColor="@color/color_blanco"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/fragment_menu_corporativo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/option_perfil"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView8"
+            android:src="@drawable/perfil"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:textColor="@color/color_blanco"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/fragment_menu_perfil" />
+    </LinearLayout>
+</LinearLayout>

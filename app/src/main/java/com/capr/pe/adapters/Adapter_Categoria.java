@@ -1,6 +1,7 @@
 package com.capr.pe.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,10 @@ import android.widget.TextView;
 import com.capr.pe.beans.Categoria_DTO;
 import com.capr.pe.beans.Menu_DTO;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.Util_Categorias;
+import com.capr.pe.util.Util_Fonts;
+import com.capr.pe.ws.RoundedTransformation;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +67,7 @@ public class Adapter_Categoria extends BaseAdapter {
 
             holder.txtnombrecategoria = (TextView) convertView.findViewById(R.id.txt_nombre_categoria_busqueda);
             holder.txtcantidadcategoria = (TextView) convertView.findViewById(R.id.txt_cantidad_categoria_busqueda);
-            holder.imgcategoria = (ImageView) convertView.findViewById(R.id.img_categoria_local);
+            holder.imgcategoria = (ImageView) convertView.findViewById(R.id.img_categoria_busqueda);
 
             convertView.setTag(holder);
         } else {
@@ -71,7 +76,12 @@ public class Adapter_Categoria extends BaseAdapter {
 
         holder.txtcantidadcategoria.setText(categoria_dto.getCantidadcategoria());
         holder.txtnombrecategoria.setText(categoria_dto.getNombrecategoria());
-        //holder.imgcategoria.setImageResource(categoria_dto.getImagencategoria());
+
+        holder.txtnombrecategoria.setTypeface(Util_Fonts.setPNASemiBold(context));
+        holder.txtcantidadcategoria.setTypeface(Util_Fonts.setPNALight(context));
+
+        int idresimagencategoria = Util_Categorias.getImageCateogry(categoria_dto.getImagencategoria());
+        holder.imgcategoria.setImageResource(idresimagencategoria);
 
         return convertView;
     }

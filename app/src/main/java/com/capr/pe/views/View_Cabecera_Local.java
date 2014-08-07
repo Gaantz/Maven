@@ -13,6 +13,7 @@ import com.capr.pe.fragments.Fragment_Detalle_Local;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
 import com.capr.pe.util.Util_Categorias;
+import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.ws.RoundedTransformation;
 import com.squareup.picasso.Picasso;
 
@@ -58,6 +59,14 @@ public class View_Cabecera_Local extends RelativeLayout {
 
             double distance = round(Double.parseDouble(jsonObject.getString("Distancia")), 2);
             ((TextView) findViewById(R.id.txt_distancia_local)).setText(String.valueOf(distance) + " mts.");
+
+            /*
+            SET FONTS
+             */
+            ((TextView)findViewById(R.id.txt_nombre_local)).setTypeface(Util_Fonts.setPNASemiBold(getContext()));
+            ((TextView)findViewById(R.id.txt_direccion_local)).setTypeface(Util_Fonts.setPNALight(getContext()));
+            ((TextView)findViewById(R.id.txt_categoria_local)).setTypeface(Util_Fonts.setPNACursivaLight(getContext()));
+            ((TextView)findViewById(R.id.txt_distancia_local)).setTypeface(Util_Fonts.setPNALight(getContext()));
 
             Picasso.with(getContext()).load(Util_Categorias.getImageCateogry(Integer.parseInt(jsonObject.getString("idCategoria")))).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_categoria_local)));
 

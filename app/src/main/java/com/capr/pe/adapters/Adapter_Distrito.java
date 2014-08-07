@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.capr.pe.beans.Categoria_DTO;
 import com.capr.pe.beans.Distrito_DTO;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.Util_Fonts;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,6 +69,7 @@ public class Adapter_Distrito extends BaseAdapter {
         }
 
         holder.txtnombredistirto.setText(distrito_dto.getNombredistrito());
+        holder.txtnombredistirto.setTypeface(Util_Fonts.setPNASemiBold(context));
 
         return convertView;
     }

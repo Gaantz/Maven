@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/color_letra"
+        android:textColor="#7B6569"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="a 120 mts"
         android:id="@+id/txt_distancia_local"
@@ -33,7 +33,7 @@
             android:src="@drawable/cat_bar"
             android:adjustViewBounds="true"
             android:layout_margin="10dp"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
             android:layout_gravity="center_vertical" />
 
         <LinearLayout
@@ -53,7 +53,7 @@
                 android:maxEms="1"
                 android:maxLines="1"
                 android:id="@+id/txt_nombre_local"
-                android:textColor="@color/color_letra"
+                android:textColor="#584545"
                 android:layout_alignTop="@+id/img_categoria_local"
                 android:layout_toRightOf="@+id/img_categoria_local"
                 android:textSize="16sp" />
@@ -67,7 +67,7 @@
                 android:maxEms="1"
                 android:maxLines="1"
                 android:id="@+id/txt_direccion_local"
-                android:textColor="@color/color_letra"
+                android:textColor="#7B6569"
                 android:textSize="14sp" />
 
             <LinearLayout
@@ -82,7 +82,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Categoria"
                     android:lines="1"
-                    android:textColor="@color/color_letra"
+                    android:textColor="#7B6569"
                     android:maxEms="1"
                     android:maxLines="1"
                     android:layout_weight="1"

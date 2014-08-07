@@ -12,4 +12,6 @@ public class WS_Maven {
     public static final String WS_REGISTRAR_USUARIO = "http://dipoo.carbono.us/index.php/usuario/registrar";
     public static final String WS_LOGEAR_USUARIO_FACEBOOK = "http://dipoo.carbono.us/index.php/usuario/loginFacebook";
     public static final String WS_LOGEAR_USUARIO_EMAIL = "http://dipoo.carbono.us/index.php/usuario/login";
+    public static final String WS_OBTENER_EMPRESAS_LIFE = "http://dipoo.carbono.us/index.php/localfoursquare/listaEmpresaLife";
+    public static final String WS_BUSQUEDAS_LOCALES = "http://dipoo.carbono.us/index.php/empresa/locales";
 }

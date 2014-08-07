@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.capr.pe.maven">
+
+    <uses-sdk tools:node="replace" />
 
     <permission
         android:name="com.capr.pe.maven.permission.MAPS_RECEIVE"
@@ -21,6 +24,7 @@
 
     <application
         android:allowBackup="true"
+        android:name="com.capr.pe.application.Maven_Application"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Maven">
@@ -36,11 +40,21 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBCMuVImJWVLxger84EFLht3uz6FdYEsEc" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
     </application>
 </manifest>

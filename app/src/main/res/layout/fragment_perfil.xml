@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_maven">
+
+    <FrameLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="fill_horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgopenmenu"
+            android:src="@drawable/menu_lateral"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Perfil"
+            android:id="@+id/fragment_perfil_perfil"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_blanco"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/color_blanco"
+                android:layout_width="fill_parent"
+                android:layout_height="125dp">
+
+                <ImageView
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/diversion"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Maven maven"
+                        android:textStyle="bold"
+                        android:padding="2dp"
+                        android:textColor="#7B6569"
+                        android:id="@+id/txtnombreusuario" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:textColor="#7B6569"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Maven"
+                        android:id="@+id/txtsexousuario" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Maven"
+                        android:padding="2dp"
+                        android:textColor="#7B6569"
+                        android:id="@+id/txtcorreousuario" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="2dp"
+                        android:textColor="#7B6569"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Maven"
+                        android:id="@+id/txtcumpleaniosusuario" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="General"
+                android:id="@+id/txtgeneralusuario"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_blanco"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Lima, Perú"
+                android:background="@drawable/holo_flat_button_plomo_claro"
+                android:gravity="left"
+                android:id="@+id/txtciudadusuario"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="10dp"
+                android:textColor="#7B6569"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Logueado con Facebook"
+                android:background="@drawable/holo_flat_button_facebook"
+                android:gravity="left"
+                android:id="@+id/txtlogeofacebookusuario"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="10dp"
+                android:textColor="@color/color_blanco"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Logueado con Nosotros"
+                android:id="@+id/txtlogeonosotrosususario"
+                android:background="@drawable/holo_flat_button_verde_claro"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="10dp"
+                android:textColor="@color/color_blanco"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Compartir"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:id="@+id/txtcompartirusuario"
+                android:textColor="@color/color_blanco"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Con Facebook"
+                android:background="@drawable/holo_flat_button_facebook"
+                android:gravity="left"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="10dp"
+                android:id="@+id/txtconfacebookusuario"
+                android:textColor="@color/color_blanco"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Con Twitter"
+                android:background="@drawable/holo_flat_button_twitter"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/contwitterusuario"
+                android:layout_marginRight="8dp"
+                android:padding="10dp"
+                android:textColor="@color/color_blanco"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Seguridad"
+                android:id="@+id/txtseguridadusuario"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_blanco"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Cambiar Contraseña \t ******"
+                android:background="@drawable/holo_flat_button_plomo_claro"
+                android:gravity="left"
+                android:id="@+id/cambiarcontraseñausuario"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="10dp"
+                android:textColor="#7B6569"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Cerrar Sesión"
+                android:background="@drawable/holo_flat_button_plomo_claro"
+                android:gravity="left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp"
+                android:id="@+id/cerrarsessionusuario"
+                android:textColor="#7B6569"
+                android:layout_gravity="left" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

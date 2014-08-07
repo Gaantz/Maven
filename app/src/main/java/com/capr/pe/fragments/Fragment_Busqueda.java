@@ -3,17 +3,25 @@ package com.capr.pe.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.capr.pe.adapters.Adapter_Categoria;
@@ -23,9 +31,11 @@ import com.capr.pe.beans.Distrito_DTO;
 import com.capr.pe.beans.Local_DTO;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
+import com.capr.pe.operation.Operation_Busquedas;
 import com.capr.pe.operation.Operation_Categorias;
 import com.capr.pe.operation.Operation_Distritos;
 import com.capr.pe.operation.Operation_Locales_Cercanos;
+import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.views.View_Categoria;
 import com.capr.pe.views.View_Distrito;
 import com.capr.pe.views.View_Local;
@@ -53,6 +63,10 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
     private boolean flagcategoria = false;
     private boolean flagdistrito = false;
 
+    protected String categoria = "";
+    protected String distrito = "";
+    protected String otro = "";
+
     public static final Fragment_Busqueda newInstance() {
         return new Fragment_Busqueda();
     }
@@ -63,22 +77,55 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
 
         operation_categorias = new Operation_Categorias(getActivity());
         operation_distritos = new Operation_Distritos(getActivity());
+
+        operation_categorias.getCategoryes();
+        operation_categorias.setInterface_operation_categorias(this);
+        flagcategoria = true;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_busquedas, container, false);
+        View view = inflater.inflate(R.layout.fragment_busquedas, container, false);
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        edtcategorias = (EditText) getView().findViewById(R.id.edt_buscar_categoria);
         edtdistritos = (EditText) getView().findViewById(R.id.edt_buscar_distrito);
+        edtcategorias = (EditText) getView().findViewById(R.id.edt_buscar_categorias);
+
+        /*
+        SET FONTS
+         */
+        edtcategorias.setTypeface(Util_Fonts.setPNALight(getActivity()));
+        edtdistritos.setTypeface(Util_Fonts.setPNALight(getActivity()));
 
         listaCategorias = (ListView) getView().findViewById(R.id.lista_categorias);
         listaDistritos = (ListView) getView().findViewById(R.id.lista_distritos);
+
+        listaDistritos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Distrito_DTO distrito_dto = (Distrito_DTO) listaDistritos.getAdapter().getItem(position);
+                String distrito = distrito_dto.getNombredistrito();
+                edtdistritos.setText(distrito);
+            }
+        });
+        listaCategorias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Categoria_DTO categoria_dto = (Categoria_DTO) listaCategorias.getAdapter().getItem(position);
+                String categoria = categoria_dto.getNombrecategoria();
+                edtcategorias.setText(categoria);
+            }
+        });
 
         edtcategorias.addTextChangedListener(new TextWatcher() {
             @Override
@@ -114,20 +161,99 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
 
         edtcategorias.setOnFocusChangeListener(this);
         edtdistritos.setOnFocusChangeListener(this);
+
+        ((TextView) getView().findViewById(R.id.btnbuscar)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+        getView().findViewById(R.id.btnbuscar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                categoria = "";
+                distrito = "";
+                otro = "";
+
+                if (edtdistritos.getText().toString().equals("") && edtcategorias.getText().toString().equals("")) {
+                    Toast.makeText(getActivity(), "Ingrese al menos un criterio a buscar.", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!edtcategorias.getText().toString().equals("")) {
+
+                    }
+                    if (!edtdistritos.getText().toString().equals("")) {
+
+                    }
+
+                    Log.e("DATA BUSQUEDA", categoria + "-" + distrito + " - " + otro);
+                }
+
+                /*
+                boolean mflagcategoria = false;
+                for (int i = 0; i < listaCategorias.getAdapter().getCount(); i++) {
+                    Categoria_DTO categoria_dto = (Categoria_DTO) listaCategorias.getAdapter().getItem(i);
+                    if(categoria_dto.getNombrecategoria().equals(edtcategorias.getText().toString())){
+                        Log.e("CATEGORIA","Es categoria");
+                        mflagcategoria = true;
+                    }
+                }
+
+                boolean mflagdistrito = false;
+                for (int i = 0; i < listaDistritos.getAdapter().getCount(); i++) {
+                    Distrito_DTO distrito_dto = (Distrito_DTO) listaDistritos.getAdapter().getItem(i);
+                    if(distrito_dto.getNombredistrito().equals(edtdistritos.getText().toString())){
+                        Log.e("DISTRITO","Es distrito");
+                        mflagdistrito = true;
+                    }
+                }
+                */
+
+            }
+        });
+
+        /*
+        Back Button Fragment
+         */
+        Fragment_Busqueda.this.getView().setFocusableInTouchMode(true);
+        Fragment_Busqueda.this.getView().requestFocus();
+        Fragment_Busqueda.this.getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    FragmentManager manager = ((Maven) getActivity()).getSupportFragmentManager();
+                    FragmentTransaction trans = manager.beginTransaction();
+                    trans.remove(Fragment_Busqueda.this);
+                    trans.commit();
+                    manager.popBackStack();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        /*
+        Button Cerrar
+         */
+        getView().findViewById(R.id.acb_img_cerrar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = ((Maven) getActivity()).getSupportFragmentManager();
+                FragmentTransaction trans = manager.beginTransaction();
+                trans.remove(Fragment_Busqueda.this);
+                trans.commit();
+                manager.popBackStack();
+            }
+        });
     }
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
 
-        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(edtcategorias, InputMethodManager.SHOW_IMPLICIT);
 
         if (v.equals(edtcategorias)) {
             if (hasFocus) {
-                if(!flagcategoria){
+                if (!flagcategoria) {
                     operation_categorias.getCategoryes();
                     operation_categorias.setInterface_operation_categorias(this);
-                }else{
+                } else {
                     listaCategorias.setVisibility(View.VISIBLE);
                 }
             } else {
@@ -135,11 +261,10 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
             }
         } else if (v.equals(edtdistritos)) {
             if (hasFocus) {
-                if(!flagdistrito){
+                if (!flagdistrito) {
                     operation_distritos.getDistritos();
                     operation_distritos.setInterface_operation_distritos(this);
-                }else{
-
+                } else {
                     listaDistritos.setVisibility(View.VISIBLE);
                 }
             } else {
@@ -171,5 +296,16 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
             listaDistritos.setVisibility(View.VISIBLE);
             flagdistrito = true;
         }
+    }
+
+    private void changeActionBar() {
+
+        ImageView imgopenmenu = (ImageView) getView().findViewById(R.id.acb_img_cerrar);
+        imgopenmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

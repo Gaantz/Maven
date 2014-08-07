@@ -18,15 +18,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Beneficio Coporativo"
-            android:textColor="#7B6569"
+            android:textColor="#F8F5F1"
             android:layout_gravity="center|left"
             android:gravity="center|left"
             android:id="@+id/txt_nombre_cupon"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:lines="1"
             android:maxLines="1" />
 
@@ -35,12 +34,11 @@
             android:layout_height="wrap_content"
             android:gravity="center|left"
             android:layout_gravity="center|left"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Almuerzo Ejecutivo 14 soles."
             android:id="@+id/txt_descripcion_cupon"
-            android:textColor="#7B6569"
+            android:textColor="#F8F5F1"
             android:layout_weight="1"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:lines="1"
             android:maxLines="1" />
 

@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.capr.pe.maven"
-        minSdkVersion 9
-        targetSdkVersion 20
+        minSdkVersion 8
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }
@@ -22,5 +22,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':sliding_menu')
+    compile project(':facebookSDK')
     compile 'com.google.android.gms:play-services:+'
+}
+
+
+configurations {
+    all*.exclude group: 'com.android.support', module: 'support-v4'
 }
