@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/assets" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/release/assets" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/release/assets" />
     </dataSet>
 
 </merger>

@@ -15,4 +15,8 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
 
+    <array name="opciones_mapa">
+        <item>Google Maps</item>
+        <item>Waze</item>
+    </array>
 </resources>

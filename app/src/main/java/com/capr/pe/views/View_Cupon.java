@@ -1,7 +1,9 @@
 package com.capr.pe.views;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,12 +15,16 @@ import com.capr.pe.beans.Cupon_DTO;
 import com.capr.pe.fragments.Fragment_Detalle_Cupon;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.ObjectSerializer;
 import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.ws.RoundedTransformation;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Gantz on 5/07/14.
@@ -62,7 +68,7 @@ public class View_Cupon extends RelativeLayout implements View.OnClickListener{
                 TextView textViewName = (TextView) findViewById(R.id.txt_nombre_cupon);
                 TextView textViewDesc = (TextView) findViewById(R.id.txt_descripcion_cupon);
 
-                textViewName.setText("Oferta Especial");
+                textViewName.setText("Oferta en Tienda");
                 textViewDesc.setText(jsonObject.getString("Nombre"));
 
                 textViewName.setTypeface(Util_Fonts.setPNASemiBold(getContext()));
@@ -74,7 +80,7 @@ public class View_Cupon extends RelativeLayout implements View.OnClickListener{
                 TextView textViewName = (TextView) findViewById(R.id.txt_nombre_cupon);
                 TextView textViewDesc = (TextView) findViewById(R.id.txt_descripcion_cupon);
 
-                textViewName.setText("Oferta en Tienda");
+                textViewName.setText("Oferta Especial");
                 textViewDesc.setText(jsonObject.getString("Nombre"));
 
                 textViewName.setTypeface(Util_Fonts.setPNASemiBold(getContext()));
@@ -83,7 +89,7 @@ public class View_Cupon extends RelativeLayout implements View.OnClickListener{
                 ((LinearLayout)findViewById(R.id.card_tipo_cupon)).setBackgroundResource(R.drawable.holo_flat_button_verde_claro);
             }
 
-            Picasso.with(getContext()).load(jsonObject.getString("Foto")).centerCrop().fit().transform(new RoundedTransformation(65, 0)).into(((ImageView) findViewById(R.id.img_empresa_cupon)));
+            findViewById(R.id.img_empresa_cupon).setVisibility(GONE);
 
         } catch (JSONException e) {
             e.printStackTrace();

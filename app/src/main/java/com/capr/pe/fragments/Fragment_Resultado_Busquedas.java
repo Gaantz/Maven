@@ -1,10 +1,15 @@
 package com.capr.pe.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +20,8 @@ import com.capr.pe.maven.R;
 import com.capr.pe.operation.Operation_Locales_Cercanos;
 import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.views.View_Local;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -27,11 +34,13 @@ public class Fragment_Resultado_Busquedas extends Fragment implements View.OnCli
     private int page = 1;
 
     private ArrayList<Local_DTO> local_dtos;
+    private String busqueda;
 
-    public static final Fragment_Resultado_Busquedas newInstance(ArrayList<Local_DTO> local_dtos) {
+    public static final Fragment_Resultado_Busquedas newInstance(ArrayList<Local_DTO> local_dtos,String busqueda) {
         Fragment_Resultado_Busquedas fragment_resultado_busquedas = new Fragment_Resultado_Busquedas();
         Bundle bundle = new Bundle();
-        bundle.putParcelableArrayList("local_dtos",local_dtos);
+        bundle.putParcelableArrayList("local_dtos", local_dtos);
+        bundle.putString("busqueda", busqueda);
         fragment_resultado_busquedas.setArguments(bundle);
         return fragment_resultado_busquedas;
     }
@@ -39,18 +48,28 @@ public class Fragment_Resultado_Busquedas extends Fragment implements View.OnCli
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        hideSoftKeyboard();
         local_dtos = getArguments().getParcelableArrayList("local_dtos");
+        busqueda = getArguments().getString("busqueda");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_local, container, false);
+        View view = inflater.inflate(R.layout.fragment_local_busqueda, container, false);
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        changeActionBar();
+        ((TextView)getView().findViewById(R.id.txtcriterio)).setText(busqueda);
+        ((TextView)getView().findViewById(R.id.txtcriterio)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
+
         linearLayout = (LinearLayout) getView().findViewById(R.id.container_locales);
 
         for (int i = 0; i < local_dtos.size(); i++) {
@@ -60,7 +79,20 @@ public class Fragment_Resultado_Busquedas extends Fragment implements View.OnCli
             linearLayout.addView(view_local);
         }
 
-        ((Button) getView().findViewById(R.id.btn_cargar_mas)).setOnClickListener(this);
+        /*
+        Button Cerrar
+         */
+        getView().findViewById(R.id.acb_img_cerrar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = ((Maven)getActivity()).getSupportFragmentManager();
+                FragmentTransaction trans = manager.beginTransaction();
+                trans.remove(Fragment_Resultado_Busquedas.this);
+                trans.commit();
+                manager.popBackStack();
+            }
+        });
+        ((TextView)getView().findViewById(R.id.txtbusqueda)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
     }
 
     @Override
@@ -83,22 +115,16 @@ public class Fragment_Resultado_Busquedas extends Fragment implements View.OnCli
         });
     }
 
-    private void changeActionBar() {
+    public void hideSoftKeyboard() {
+        if(getActivity().getCurrentFocus()!=null) {
+            InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        }
+    }
 
-        getView().findViewById(R.id.imgopenmenu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((Maven) getActivity()).sm_menu.toggle();
-            }
-        });
-
-        TextView edtbuscar = (TextView) getView().findViewById(R.id.edt_buscar_categoria);
-        edtbuscar.setTypeface(Util_Fonts.setPNALight(getActivity()));
-        edtbuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Busqueda.newInstance(), "fragment_busqueda").addToBackStack("a").commit();
-            }
-        });
+    public void showSoftKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        view.requestFocus();
+        inputMethodManager.showSoftInput(view, 0);
     }
 }

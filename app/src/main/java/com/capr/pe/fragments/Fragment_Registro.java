@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -43,7 +44,14 @@ public class Fragment_Registro extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_registro, container, false);
+        View view = inflater.inflate(R.layout.fragment_registro, container, false);
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override

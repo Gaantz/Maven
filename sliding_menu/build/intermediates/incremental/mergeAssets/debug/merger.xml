@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/assets" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/src/debug/assets" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/src/debug/assets" />
     </dataSet>
 
 </merger>

@@ -6,8 +6,8 @@
     android:background="@drawable/border_empresa"
     android:layout_marginRight="8dp"
     android:layout_marginLeft="8dp"
-    android:layout_marginTop="2dp"
-    android:layout_marginBottom="2dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     android:layout_height="75dp">
 
     <LinearLayout
@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/imgempresa"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/otros"
+            android:src="@drawable/placeholder_empresa"
+            android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:scaleType="centerInside" />
 

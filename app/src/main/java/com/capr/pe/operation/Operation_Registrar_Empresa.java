@@ -1,6 +1,7 @@
 package com.capr.pe.operation;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -24,21 +25,20 @@ import java.util.Map;
 /**
  * Created by Gantz on 11/07/14.
  */
-public class Operation_Busquedas {
+public class Operation_Registrar_Empresa {
 
     private Context context;
-    private Interface_Operation_Busquedas interface_operation_busquedas;
-    private int page;
+    private Interface_Operation_Registrar_Empresa interface_operation_registrar_empresa;
 
-    public Operation_Busquedas(Context context) {
+    public Operation_Registrar_Empresa(Context context) {
         this.context = context;
     }
 
-    public void buscarLocales(final String s, final String categoria, final String ciudad) {
+    public void registrarEmpresaLife(final String idUsuario, final String idEmpresaLife, final String dniUsuario, final String validacion) {
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest jsonObjectRequest = new StringRequest(
                 Request.Method.POST,
-                WS_Maven.WS_BUSQUEDAS_LOCALES,
+                WS_Maven.WS_REGISTRAR_EMPRESA_LIFE,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -47,19 +47,9 @@ public class Operation_Busquedas {
 
                             int resultado = Integer.parseInt(responseJsonObject.getString("resultado"));
                             if (resultado == 1) {
-                                JSONArray responseJsonArray = responseJsonObject.getJSONArray("locales");
-                                ArrayList<Local_DTO> local_dtos = new ArrayList<Local_DTO>();
-
-                                int totalpages = -1;
-
-                                for (int i = 0; i < responseJsonArray.length(); i++) {
-                                    Local_DTO local_dto = new Local_DTO(responseJsonArray.getJSONObject(i));
-                                    local_dtos.add(local_dto);
-                                }
-
-                                interface_operation_busquedas.getLocalesCercanos(true, local_dtos, totalpages, "Correcto");
+                                interface_operation_registrar_empresa.registarEmpresaLife(true,responseJsonObject,responseJsonObject.getString("mensaje"));
                             } else {
-                                interface_operation_busquedas.getLocalesCercanos(false, null, -1, null);
+                                interface_operation_registrar_empresa.registarEmpresaLife(false,null,"No se pudo agregar la empresa");
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -78,10 +68,12 @@ public class Operation_Busquedas {
 
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("token", WS_Maven.TOKEN_MAVEN);
-                params.put("s", s);
-                params.put("category", categoria);
-                params.put("city", ciudad);
-                params.put("page", String.valueOf(page));
+                params.put("idUsuario", idUsuario);
+                params.put("idEmpresaLife", idEmpresaLife);
+                params.put("dniUsuario", dniUsuario);
+                params.put("validacion", validacion);
+
+                Log.e("PARAMS",params.toString());
 
                 return params;
             }
@@ -89,15 +81,11 @@ public class Operation_Busquedas {
         queue.add(jsonObjectRequest);
     }
 
-    public void setPage(int page) {
-        this.page = page;
+    public void setInterface_operation_registrar_empresa(Interface_Operation_Registrar_Empresa interface_operation_registrar_empresa) {
+        this.interface_operation_registrar_empresa = interface_operation_registrar_empresa;
     }
 
-    public void setInterface_operation_busquedas(Interface_Operation_Busquedas interface_operation_busquedas) {
-        this.interface_operation_busquedas = interface_operation_busquedas;
-    }
-
-    public interface Interface_Operation_Busquedas {
-        void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje);
+    public interface Interface_Operation_Registrar_Empresa {
+        void registarEmpresaLife(boolean status, JSONObject response, String mensaje);
     }
 }

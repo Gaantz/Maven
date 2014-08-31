@@ -16,8 +16,7 @@ public class Usuario_DTO implements Serializable {
 
     private transient JSONObject jsonObject;
 
-    public Usuario_DTO(JSONObject jsonObject) {
-        this.jsonObject = jsonObject;
+    public Usuario_DTO() {
     }
 
     public JSONObject getJsonObject() {

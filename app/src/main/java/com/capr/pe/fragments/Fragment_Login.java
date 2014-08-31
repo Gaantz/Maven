@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -44,7 +45,14 @@ public class Fragment_Login extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override
@@ -79,26 +87,6 @@ public class Fragment_Login extends Fragment {
                         }
                     }
                 });
-            }
-        });
-
-                 /*
-        Back Button Fragment
-         */
-        Fragment_Login.this.getView().setFocusableInTouchMode(true);
-        Fragment_Login.this.getView().requestFocus();
-        Fragment_Login.this.getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    FragmentManager manager = ((Maven)getActivity()).getSupportFragmentManager();
-                    FragmentTransaction trans = manager.beginTransaction();
-                    trans.remove(Fragment_Login.this);
-                    trans.commit();
-                    manager.popBackStack();
-                    return true;
-                }
-                return false;
             }
         });
 

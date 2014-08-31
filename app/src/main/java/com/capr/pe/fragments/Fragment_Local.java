@@ -1,9 +1,13 @@
 package com.capr.pe.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -12,20 +16,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.capr.pe.beans.Empresa_DTO;
 import com.capr.pe.beans.Local_DTO;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
+import com.capr.pe.operation.Operation_Empresas;
 import com.capr.pe.operation.Operation_Locales_Cercanos;
+import com.capr.pe.session.Session_Manager;
+import com.capr.pe.util.ObjectSerializer;
 import com.capr.pe.util.Util_Fonts;
 import com.capr.pe.util.Util_GPS;
+import com.capr.pe.views.View_Empresa_Life;
 import com.capr.pe.views.View_Local;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -47,7 +58,13 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_local, container, false);
+        View view = inflater.inflate(R.layout.fragment_local, container, false);
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override
@@ -71,7 +88,7 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
             }
         });
 
-        ((Button) getView().findViewById(R.id.btn_cargar_mas)).setOnClickListener(this);
+        ((TextView) getView().findViewById(R.id.btn_cargar_mas)).setOnClickListener(Fragment_Local.this);
     }
 
     @Override
@@ -99,16 +116,16 @@ public class Fragment_Local extends Fragment implements View.OnClickListener {
         getView().findViewById(R.id.imgopenmenu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Maven)getActivity()).sm_menu.toggle();
+                ((Maven) getActivity()).sm_menu.toggle();
             }
         });
 
-        TextView edtbuscar = (TextView)getView().findViewById(R.id.edt_buscar_categoria);
+        TextView edtbuscar = (TextView) getView().findViewById(R.id.edt_buscar_categoria);
         edtbuscar.setTypeface(Util_Fonts.setPNALight(getActivity()));
         edtbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Maven)getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Busqueda.newInstance(),"fragment_busqueda").addToBackStack("a").commit();
+                ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Busqueda.newInstance(), "fragment_busqueda").addToBackStack("a").commit();
             }
         });
     }

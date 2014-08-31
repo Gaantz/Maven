@@ -40,6 +40,18 @@
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/acb_img_mapa"
+            android:src="@drawable/icono_carrito_uno"
+            android:adjustViewBounds="true"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_alignTop="@+id/acb_img_cerrar"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <ScrollView
@@ -60,6 +72,7 @@
                 android:layout_marginBottom="5dp"
                 android:clickable="false"
                 android:layout_width="fill_parent"
+                android:id="@+id/container_cabecera"
                 android:background="@drawable/holo_flat_button_plomo_claro"
                 android:layout_height="fill_parent">
 

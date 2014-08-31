@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,7 +33,14 @@ public class Fragment_Perfil extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override
@@ -42,7 +50,8 @@ public class Fragment_Perfil extends Fragment {
 
         Session_Manager session_manager = new Session_Manager(getActivity());
         try {
-            Usuario_DTO usuario_dto = new Usuario_DTO(session_manager.getSession().getJsonObject());
+            Usuario_DTO usuario_dto = new Usuario_DTO();
+            usuario_dto.setJsonObject(session_manager.getSession().getJsonObject());
             ((TextView) getView().findViewById(R.id.txtnombreusuario)).setText(usuario_dto.getJsonObject().getString("nombre"));
             ((TextView) getView().findViewById(R.id.txtsexousuario)).setText(usuario_dto.getJsonObject().getString("sexo"));
             ((TextView) getView().findViewById(R.id.txtcorreousuario)).setText(usuario_dto.getJsonObject().getString("Email"));

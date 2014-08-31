@@ -2,27 +2,18 @@ package com.capr.pe.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.capr.pe.adapters.Adapter_Menu;
-import com.capr.pe.beans.Menu_DTO;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
 import com.capr.pe.session.Session_Manager;
 import com.capr.pe.util.Util_Fonts;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 /**
  * Created by Gantz on 5/07/14.
@@ -45,7 +36,14 @@ public class Fragment_Menu extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_menu_v2, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu_v2, container, false);
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override
@@ -71,7 +69,7 @@ public class Fragment_Menu extends Fragment implements View.OnClickListener {
         boolean session = new Session_Manager(getActivity()).isLogin();
         switch (v.getId()) {
             case R.id.option_preguntas:
-                ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Entrar.newInstance(), "fragment_entrar").commit();
+                ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Preguntas.newInstance(), "fragment_entrar").commit();
                 break;
             case R.id.option_explorar:
                 ((Maven) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Local.newInstance(), "fragment_explorar").commit();

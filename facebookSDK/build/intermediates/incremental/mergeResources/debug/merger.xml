@@ -2,327 +2,327 @@
 <merger version="2" >
 
     <dataSet config="21.0.0-rc1" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0-rc1/res" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0-rc1/res" />
     </dataSet>
     <dataSet config="main" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res" >
+        <source path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res" >
             <file
                 name="com_facebook_button_check"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_check.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_check.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_check_off"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_check_off.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_check_off.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_check_on"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_check_on.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_check_on.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_focused"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_grey_focused.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_grey_focused.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_normal"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_grey_normal.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_grey_normal.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_pressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_grey_pressed.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_button_grey_pressed.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_close"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_close.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_close.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_icon"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_icon.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_icon.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_list_divider"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_list_divider.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_list_divider.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_list_section_header_background"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_list_section_header_background.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_list_section_header_background.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_focused"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue_focused.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue_focused.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_normal"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue_normal.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue_normal.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_pressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue_pressed.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_blue_pressed.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_silver"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_silver.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_loginbutton_silver.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_logo"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_logo.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_logo.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_item_background"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_item_background.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_item_background.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_focused"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_focused.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_focused.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_longpressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_longpressed.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_longpressed.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_pressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_pressed.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_pressed.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_selector"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_selector.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_selector.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_selector_background_transition"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_selector_background_transition.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_selector_background_transition.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_selector_disabled"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_selector_disabled.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_list_selector_disabled.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_top_button"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_top_button.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_picker_top_button.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_place_default_icon"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_place_default_icon.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_place_default_icon.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_profile_default_icon"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_profile_default_icon.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_profile_default_icon.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_profile_picture_blank_portrait"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_profile_picture_blank_portrait.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_profile_picture_blank_portrait.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_profile_picture_blank_square"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_profile_picture_blank_square.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_profile_picture_blank_square.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_top_background"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_top_background.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_top_background.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_top_button"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_top_button.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_top_button.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_usersettingsfragment_background_gradient"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_usersettingsfragment_background_gradient.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable/com_facebook_usersettingsfragment_background_gradient.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_focused"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_button_grey_focused.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_button_grey_focused.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_normal"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_button_grey_normal.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_button_grey_normal.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_pressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_button_grey_pressed.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_button_grey_pressed.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_close"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_close.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_close.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_icon"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_icon.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_icon.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_focused"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_loginbutton_blue_focused.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_loginbutton_blue_focused.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_normal"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_loginbutton_blue_normal.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_loginbutton_blue_normal.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_pressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_loginbutton_blue_pressed.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_loginbutton_blue_pressed.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_logo"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_logo.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-hdpi/com_facebook_logo.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_close"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-ldpi/com_facebook_close.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-ldpi/com_facebook_close.png"
                 qualifiers="ldpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_icon"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-ldpi/com_facebook_icon.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-ldpi/com_facebook_icon.png"
                 qualifiers="ldpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_focused"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_button_grey_focused.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_button_grey_focused.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_normal"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_button_grey_normal.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_button_grey_normal.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_pressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_button_grey_pressed.9.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_button_grey_pressed.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_close"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_close.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_close.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_focused"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_loginbutton_blue_focused.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_loginbutton_blue_focused.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_normal"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_loginbutton_blue_normal.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_loginbutton_blue_normal.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_blue_pressed"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_loginbutton_blue_pressed.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_loginbutton_blue_pressed.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_logo"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_logo.png"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/drawable-xhdpi/com_facebook_logo.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="com_facebook_friendpickerfragment"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_friendpickerfragment.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_friendpickerfragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_login_activity_layout"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_login_activity_layout.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_login_activity_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_activity_circle_row"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_activity_circle_row.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_activity_circle_row.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_checkbox"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_checkbox.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_checkbox.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_image"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_image.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_image.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_list_row"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_list_row.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_list_row.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_list_section_header"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_list_section_header.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_list_section_header.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_search_box"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_search_box.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_search_box.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_title_bar"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_title_bar.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_title_bar.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_title_bar_stub"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_title_bar_stub.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_picker_title_bar_stub.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_placepickerfragment"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_placepickerfragment.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_placepickerfragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_placepickerfragment_list_row"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_placepickerfragment_list_row.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_placepickerfragment_list_row.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_usersettingsfragment"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_usersettingsfragment.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/layout/com_facebook_usersettingsfragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/values/attrs.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/values/attrs.xml"
                 qualifiers="" >
                 <declare-styleable name="com_facebook_profile_picture_view" >
                     <attr name="preset_size" >
@@ -400,7 +400,7 @@
                 </declare-styleable>
             </file>
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/values/strings.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/values/strings.xml"
                 qualifiers="" >
                 <string name="com_facebook_usersettingsfragment_logged_in" >Logged In
                 </string>
@@ -454,7 +454,7 @@
                 </string>
             </file>
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/values/styles.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/values/styles.xml"
                 qualifiers="" >
                 <color name="com_facebook_usersettingsfragment_connected_text_color" >#FFFFFF
                 </color>
@@ -551,7 +551,7 @@ center
                 </dimen>
             </file>
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/values-es/strings.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/values-es/strings.xml"
                 qualifiers="es" >
                 <string name="com_facebook_nearby" >Cercano
                 </string>
@@ -605,7 +605,7 @@ center
                 </string>
             </file>
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/values-he/strings.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/values-he/strings.xml"
                 qualifiers="he" >
                 <string name="com_facebook_requesterror_password_changed" >.הסיסמה שלך בפייסבוק השתנתה, אנא חבר מחדש את האפליקציה עם פייסבוק
                 </string>
@@ -659,7 +659,7 @@ center
                 </string>
             </file>
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/main/res/values-iw/strings.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/main/res/values-iw/strings.xml"
                 qualifiers="iw" >
                 <string name="com_facebook_usersettingsfragment_log_in_button" >התחבר…
                 </string>
@@ -713,11 +713,11 @@ center
                 </string>
             </file>
         </source>
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/build/generated/res/rs/debug" />
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/build/generated/res/generated/debug" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/build/generated/res/rs/debug" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/build/generated/res/generated/debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/facebookSDK/src/debug/res" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/facebookSDK/src/debug/res" />
     </dataSet>
 
 </merger>

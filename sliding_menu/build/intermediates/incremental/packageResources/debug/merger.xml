@@ -2,14 +2,14 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/res" >
+        <source path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/res" >
             <file
                 name="slidingmenumain"
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/res/layout/slidingmenumain.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/res/layout/slidingmenumain.xml"
                 qualifiers=""
                 type="layout" />
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/res/values/attrs.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/res/values/attrs.xml"
                 qualifiers="" >
                 <declare-styleable name="SlidingMenu" >
                     <attr name="mode" >
@@ -78,18 +78,18 @@
                 </declare-styleable>
             </file>
             <file
-                path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/res/values/ids.xml"
+                path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/res/values/ids.xml"
                 qualifiers="" >
                 <item
                     name="selected_view"
                     type="id"/>
             </file>
         </source>
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/build/generated/res/rs/debug" />
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/build/generated/res/generated/debug" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/build/generated/res/rs/debug" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/build/generated/res/generated/debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/Gantz/Desktop/Personal/Maven/Maven/Maven/sliding_menu/src/debug/res" />
+        <source path="/Users/Gantz/Desktop/Maven/Maven/sliding_menu/src/debug/res" />
     </dataSet>
 
 </merger>

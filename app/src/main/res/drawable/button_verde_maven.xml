@@ -6,14 +6,14 @@
         <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
             <item>
                 <shape android:shape="rectangle">
-                    <corners android:radius="20dp" />
+                    <corners android:radius="50dp" />
 
                     <solid android:color="@color/verde_maven" />
                 </shape>
             </item>
             <item>
                 <shape android:shape="rectangle">
-                    <corners android:radius="20dp" />
+                    <corners android:radius="50dp" />
 
                     <solid android:color="@color/verde_maven" />
                 </shape>
@@ -25,14 +25,14 @@
     <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
         <item>
             <shape android:shape="rectangle">
-                <corners android:radius="20dp" />
+                <corners android:radius="50dp" />
 
                 <solid android:color="@color/verde_maven" />
             </shape>
         </item>
         <item>
             <shape android:shape="rectangle">
-                <corners android:radius="20dp" />
+                <corners android:radius="50dp" />
 
                 <solid android:color="@color/verde_maven" />
             </shape>
@@ -44,14 +44,14 @@
         <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
             <item>
                 <shape android:shape="rectangle">
-                    <corners android:radius="20dp" />
+                    <corners android:radius="50dp" />
 
                     <solid android:color="@color/verde_maven" />
                 </shape>
             </item>
             <item>
                 <shape android:shape="rectangle">
-                    <corners android:radius="20dp" />
+                    <corners android:radius="50dp" />
 
                     <solid android:color="@color/verde_maven" />
                 </shape>

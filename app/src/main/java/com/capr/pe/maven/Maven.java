@@ -1,21 +1,30 @@
 package com.capr.pe.maven;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.capr.pe.fragments.Fragment_Empresa;
 import com.capr.pe.fragments.Fragment_Local;
 import com.capr.pe.fragments.Fragment_Menu;
+import com.capr.pe.fragments.Fragment_Splash;
+import com.capr.pe.session.Session_Manager;
+import com.capr.pe.util.ObjectSerializer;
 import com.google.android.gms.location.LocationClient;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivity;
 import com.parse.ParseFacebookUtils;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 public class Maven extends SlidingActivity {
@@ -26,7 +35,7 @@ public class Maven extends SlidingActivity {
     private LocationClient locationClient;
 
     protected Fragment_Menu fragment_menu;
-    protected Fragment_Local fragment_local;
+    //  protected Fragment_Local fragment_local;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,13 +45,8 @@ public class Maven extends SlidingActivity {
         setContentView(R.layout.maven);
         setBehindContentView(R.layout.menu_frame);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Local.newInstance(), "fragment_locales").commit();
-            getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, Fragment_Menu.newInstance()).commit();
-        } else {
-            fragment_menu = (Fragment_Menu) this.getSupportFragmentManager().findFragmentById(R.id.menu_frame);
-            fragment_local = (Fragment_Local) this.getSupportFragmentManager().findFragmentById(R.id.container);
-        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, Fragment_Splash.newInstance(), "fragment_locales").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.menu_frame, Fragment_Menu.newInstance()).commit();
 
         sm_menu = getSlidingMenu();
         sm_menu.setShadowWidthRes(R.dimen.navigation_drawer_width);
@@ -60,9 +64,9 @@ public class Maven extends SlidingActivity {
 
     @Override
     public void onBackPressed() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        if (fragmentManager.getBackStackEntryCount() > 0) {
-            fragmentManager.popBackStack();
+        FragmentManager fm = getSupportFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
         } else {
             super.onBackPressed();
         }

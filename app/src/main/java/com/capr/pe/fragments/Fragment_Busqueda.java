@@ -29,6 +29,7 @@ import com.capr.pe.adapters.Adapter_Distrito;
 import com.capr.pe.beans.Categoria_DTO;
 import com.capr.pe.beans.Distrito_DTO;
 import com.capr.pe.beans.Local_DTO;
+import com.capr.pe.dialog.Dialog_Maven;
 import com.capr.pe.maven.Maven;
 import com.capr.pe.maven.R;
 import com.capr.pe.operation.Operation_Busquedas;
@@ -63,7 +64,7 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
     private boolean flagcategoria = false;
     private boolean flagdistrito = false;
 
-    protected String categoria = "";
+    protected String s = "";
     protected String distrito = "";
     protected String otro = "";
 
@@ -166,44 +167,167 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
         getView().findViewById(R.id.btnbuscar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                categoria = "";
-                distrito = "";
-                otro = "";
-
-                if (edtdistritos.getText().toString().equals("") && edtcategorias.getText().toString().equals("")) {
-                    Toast.makeText(getActivity(), "Ingrese al menos un criterio a buscar.", Toast.LENGTH_SHORT).show();
+                if (edtcategorias.getText().toString().matches("") && edtdistritos.getText().toString().matches("")) {
+                    Toast.makeText(getActivity(), "Ingrese al menos un criterio de busqueda...!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (!edtcategorias.getText().toString().equals("")) {
+                    final Dialog_Maven dialog_maven = new Dialog_Maven(getActivity());
+                    dialog_maven.show();
 
+                    s = edtcategorias.getText().toString();
+                    distrito = edtdistritos.getText().toString();
+
+                    if (!s.matches("") && !distrito.matches("")) {
+                        if (distrito.equals("Mi ubicación")) {
+                            if (isCategory(s)) {
+                                if (isDescuentoOrBeneficio(s)) {
+                                    Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                    operation_busquedas.buscarLocalesCercanos("", "", distrito, s);
+                                    operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                        @Override
+                                        public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                            if (status) {
+                                                dialog_maven.hide();
+                                                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s + " - " + distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                    operation_busquedas.buscarLocalesCercanos("", s, distrito, "");
+                                    operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                        @Override
+                                        public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                            if (status) {
+                                                dialog_maven.hide();
+                                                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s + " - " + distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                operation_busquedas.buscarLocalesCercanos(s, "", distrito, "");
+                                operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                    @Override
+                                    public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                        if (status) {
+                                            dialog_maven.hide();
+                                            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s + " - " + distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
+                            if (isCategory(s)) {
+                                if (isDescuentoOrBeneficio(s)) {
+                                    Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                    operation_busquedas.buscarLocales("", "", distrito, s);
+                                    operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                        @Override
+                                        public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                            if (status) {
+                                                dialog_maven.hide();
+                                                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s + " - " + distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                    operation_busquedas.buscarLocales("", s, distrito, "");
+                                    operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                        @Override
+                                        public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                            if (status) {
+                                                dialog_maven.hide();
+                                                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s + " - " + distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                operation_busquedas.buscarLocales(s, "", distrito, "");
+                                operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                    @Override
+                                    public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                        if (status) {
+                                            dialog_maven.hide();
+                                            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s + " - " + distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    } else {
+                        if (!s.matches("")) {
+                            if (isCategory(s)) {
+                                if (isDescuentoOrBeneficio(s)) {
+                                    Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                    operation_busquedas.buscarLocales("", "", "", s);
+                                    operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                        @Override
+                                        public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                            if (status) {
+                                                dialog_maven.hide();
+                                                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s), "fragment_busqueda").addToBackStack("a").commit();
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                    operation_busquedas.buscarLocales("", s, "", "");
+                                    operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                        @Override
+                                        public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                            if (status) {
+                                                dialog_maven.hide();
+                                                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s), "fragment_busqueda").addToBackStack("a").commit();
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                operation_busquedas.buscarLocales(s, "", "", "");
+                                operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                    @Override
+                                    public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                        if (status) {
+                                            dialog_maven.hide();
+                                            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, s), "fragment_busqueda").addToBackStack("a").commit();
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
+                            if (distrito.equals("Mi ubicación")) {
+                                Operation_Locales_Cercanos operation_locales_cercanos = new Operation_Locales_Cercanos(getActivity());
+                                operation_locales_cercanos.getLocalesCercanos();
+                                operation_locales_cercanos.setInterface_operation_locales_cercanos(new Operation_Locales_Cercanos.Interface_Operation_Locales_Cercanos() {
+                                    @Override
+                                    public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages) {
+                                        if (status) {
+                                            dialog_maven.hide();
+                                            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                        }
+                                    }
+                                });
+                            } else {
+                                Operation_Busquedas operation_busquedas = new Operation_Busquedas(getActivity());
+                                operation_busquedas.buscarLocales("", "", distrito, "");
+                                operation_busquedas.setInterface_operation_busquedas(new Operation_Busquedas.Interface_Operation_Busquedas() {
+                                    @Override
+                                    public void getLocalesCercanos(boolean status, ArrayList<Local_DTO> local_dtos, int pages, String mensaje) {
+                                        if (status) {
+                                            dialog_maven.hide();
+                                            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, Fragment_Resultado_Busquedas.newInstance(local_dtos, distrito), "fragment_busqueda").addToBackStack("a").commit();
+                                        }
+                                    }
+                                });
+                            }
+                        }
                     }
-                    if (!edtdistritos.getText().toString().equals("")) {
-
-                    }
-
-                    Log.e("DATA BUSQUEDA", categoria + "-" + distrito + " - " + otro);
                 }
-
-                /*
-                boolean mflagcategoria = false;
-                for (int i = 0; i < listaCategorias.getAdapter().getCount(); i++) {
-                    Categoria_DTO categoria_dto = (Categoria_DTO) listaCategorias.getAdapter().getItem(i);
-                    if(categoria_dto.getNombrecategoria().equals(edtcategorias.getText().toString())){
-                        Log.e("CATEGORIA","Es categoria");
-                        mflagcategoria = true;
-                    }
-                }
-
-                boolean mflagdistrito = false;
-                for (int i = 0; i < listaDistritos.getAdapter().getCount(); i++) {
-                    Distrito_DTO distrito_dto = (Distrito_DTO) listaDistritos.getAdapter().getItem(i);
-                    if(distrito_dto.getNombredistrito().equals(edtdistritos.getText().toString())){
-                        Log.e("DISTRITO","Es distrito");
-                        mflagdistrito = true;
-                    }
-                }
-                */
-
             }
         });
 
@@ -299,7 +423,6 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
     }
 
     private void changeActionBar() {
-
         ImageView imgopenmenu = (ImageView) getView().findViewById(R.id.acb_img_cerrar);
         imgopenmenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -307,5 +430,22 @@ public class Fragment_Busqueda extends Fragment implements View.OnClickListener,
 
             }
         });
+    }
+
+    private boolean isCategory(String s) {
+        for (int i = 0; i < listaCategorias.getAdapter().getCount(); i++) {
+            Categoria_DTO categoria_dto = (Categoria_DTO) listaCategorias.getItemAtPosition(i);
+            if (s.equals(categoria_dto.getNombrecategoria())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isDescuentoOrBeneficio(String s) {
+        if (s.equals("Beneficio") || s.equals("Descuento")) {
+            return true;
+        }
+        return false;
     }
 }

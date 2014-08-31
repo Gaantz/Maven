@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/fondo_maven"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="fill_horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgopenmenu"
+            android:src="@drawable/menu_lateral"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:id="@+id/edt_buscar_categoria"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:drawableLeft="@drawable/menu_lupa"
+            android:hint="Cerca de mi, Restaurantes..."
+            android:padding="5dp"
+            android:maxLines="1"
+            android:lines="1"
+
+            android:textColorHint="#8A8A8D"
+            android:textColor="#8A8A8D"
+            android:imeOptions="actionSearch"
+            android:editable="false"
+            android:textSize="16sp"
+            android:background="@drawable/holo_flat_edittext_plomo_oscuro"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgcerrar"
+            android:src="@drawable/menu_cerrar"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:id="@+id/container_header_empresa"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:id="@+id/container_locales"
+                android:layout_height="fill_parent">
+
+
+                <LinearLayout
+                    android:id="@+id/framecargando"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/bigote_verde"
+                        android:id="@+id/imageView" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/color_blanco"
+                        android:maxLines="10"
+                        android:gravity="center"
+                        android:text="Espere por favor...!"
+                        android:id="@+id/txtavisodialoglife"
+                        android:layout_gravity="right" />
+
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBar2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:textColor="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:text="Cargar Mas"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:id="@+id/btn_cargar_mas" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

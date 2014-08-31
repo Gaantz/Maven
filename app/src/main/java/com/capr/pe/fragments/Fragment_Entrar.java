@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -59,7 +60,14 @@ public class Fragment_Entrar extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_entrar, container, false);
+        View view = inflater.inflate(R.layout.fragment_entrar, container, false);
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        return view;
     }
 
     @Override
@@ -139,7 +147,14 @@ public class Fragment_Entrar extends Fragment implements View.OnClickListener {
 
     private void loginFacebook() {
         progressDialog = ProgressDialog.show(getActivity(), null, "Comprobando...", true);
-        List<String> permissions = Arrays.asList("basic_info", "email", "user_about_me", "user_relationships", "user_birthday", "user_location");
+        List<String> permissions = Arrays.asList("email",
+                                                 "public_profile",
+                                                 "user_friends",
+                                                 "user_about_me",
+                                                 "user_birthday",
+                                                 "user_relationships",
+                                                 "user_location",
+                                                 "user_likes");
         ParseFacebookUtils.logIn(permissions, getActivity(), new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException err) {

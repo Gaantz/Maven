@@ -1,9 +1,15 @@
 package com.capr.pe.fragments;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,11 +21,16 @@ import android.widget.TextView;
 
 import com.capr.pe.beans.Cupon_DTO;
 import com.capr.pe.beans.Local_DTO;
+import com.capr.pe.database.Database_Maven;
 import com.capr.pe.maven.Maven;
+import com.capr.pe.maven.Maven_Mapa;
 import com.capr.pe.maven.R;
+import com.capr.pe.session.Session_Manager;
 import com.capr.pe.util.Util_Fonts;
+import com.capr.pe.util.Util_GPS;
 import com.capr.pe.views.View_Cabecera_Local;
 import com.capr.pe.views.View_Cupon;
+import com.capr.pe.views.View_Cupon_Life;
 import com.capr.pe.views.View_Detalle_Local;
 import com.capr.pe.views.View_Local;
 import com.google.android.gms.maps.CameraUpdate;
@@ -88,6 +99,15 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
             CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
             map.animateCamera(camUpd3);
 
+            map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(LatLng latLng) {
+                    Intent intent = new Intent(getActivity(), Maven_Mapa.class);
+                    intent.putExtra("local_dto", local_dto.getJsonObject().toString());
+                    startActivity(intent);
+                }
+            });
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -115,6 +135,15 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
         View_Cabecera_Local view_cabecera_local = new View_Cabecera_Local(getActivity(), local_dto);
         view_cabecera_local.setTag(local_dto);
 
+        getView().findViewById(R.id.container_cabecera).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Maven_Mapa.class);
+                intent.putExtra("local_dto", local_dto.getJsonObject().toString());
+                startActivity(intent);
+            }
+        });
+
         View_Detalle_Local view_detalle_local = new View_Detalle_Local(getActivity(), local_dto);
 
         try {
@@ -122,13 +151,30 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
             LinearLayout linearLayoutCupones = (LinearLayout) getView().findViewById(R.id.container_cupones);
 
             JSONArray jsonArrayCupones = jsonObject.getJSONArray("ListaCuponesRetail");
+            JSONArray jsonArrayCuponesLife = jsonObject.getJSONArray("ListaCuponesLife");
+
             if (jsonArrayCupones.length() > 0) {
-                linearLayoutCupones.setVisibility(View.VISIBLE);
                 for (int i = 0; i < jsonArrayCupones.length(); i++) {
                     Cupon_DTO cupon_dto = new Cupon_DTO(jsonArrayCupones.getJSONObject(i));
                     View_Cupon view_cupon = new View_Cupon(getActivity(), cupon_dto);
                     view_cupon.setNombre_local(nombre_local);
                     linearLayoutCupones.addView(view_cupon);
+                }
+            }
+
+            linearLayoutCupones.setVisibility(View.VISIBLE);
+
+            if(new Session_Manager(getActivity()).isLogin()){
+                Database_Maven database_maven = new Database_Maven(getActivity());
+                if(!(database_maven.getAllEmpresaIds().size() == 0)){
+                    if (jsonArrayCuponesLife.length() > 0) {
+                        for (int i = 0; i < jsonArrayCuponesLife.length(); i++) {
+                            Cupon_DTO cupon_dto = new Cupon_DTO(jsonArrayCuponesLife.getJSONObject(i));
+                            View_Cupon_Life view_cupon_life = new View_Cupon_Life(getActivity(), cupon_dto);
+                            view_cupon_life.setNombre_local(nombre_local);
+                            linearLayoutCupones.addView(view_cupon_life);
+                        }
+                    }
                 }
             }
         } catch (JSONException e) {
@@ -141,26 +187,6 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
         ((TextView)getView().findViewById(R.id.acb_titulo_local)).setTypeface(Util_Fonts.setPNASemiBold(getActivity()));
 
         /*
-        Back Button Fragment
-         */
-        Fragment_Detalle_Local.this.getView().setFocusableInTouchMode(true);
-        Fragment_Detalle_Local.this.getView().requestFocus();
-        Fragment_Detalle_Local.this.getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    FragmentManager manager = ((Maven)getActivity()).getSupportFragmentManager();
-                    FragmentTransaction trans = manager.beginTransaction();
-                    trans.remove(Fragment_Detalle_Local.this);
-                    trans.commit();
-                    manager.popBackStack();
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        /*
         Button Cerrar
          */
         getView().findViewById(R.id.acb_img_cerrar).setOnClickListener(new View.OnClickListener() {
@@ -171,6 +197,16 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
                 trans.remove(Fragment_Detalle_Local.this);
                 trans.commit();
                 manager.popBackStack();
+            }
+        });
+
+        getView().findViewById(R.id.acb_img_mapa).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setItems(R.array.opciones_mapa, mDialogListener);
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
@@ -193,4 +229,34 @@ public class Fragment_Detalle_Local extends Fragment implements View.OnClickList
         ft.remove(fragment);
         ft.commit();
     }
+
+    DialogInterface.OnClickListener mDialogListener = new Dialog.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+
+            Util_GPS mGpsUtil = new Util_GPS(getActivity());
+            Intent intent;
+
+            switch (which) {
+                case 0:
+                    try {
+                        intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?saddr=" + mGpsUtil.getLatitude() + "," + mGpsUtil.getLongitude() + "&daddr=" + Double.parseDouble(jsonObject.getString("Latitud")) + "," + Double.parseDouble(jsonObject.getString("Longitud")) + "&mode=driving"));
+                        startActivity(intent);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                default:
+                    try{
+                        String url = "waze://?ll="+Double.parseDouble(jsonObject.getString("Latitud"))+","+Double.parseDouble(jsonObject.getString("Longitud"))+"&navigate=yes";
+                        intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
+                        startActivity( intent );
+                    }catch (Exception ex){
+                        intent = new Intent( Intent.ACTION_VIEW, Uri.parse("market://details?id=com.waze"));
+                        startActivity(intent);
+                    }break;
+            }
+        }
+    };
 }

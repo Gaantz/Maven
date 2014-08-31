@@ -127,10 +127,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/holo_flat_button_plomo_claro"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
@@ -139,8 +139,32 @@
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:padding="10dp"
+                    android:background="@drawable/holo_flat_button_plomo_claro"
                     android:layout_height="match_parent"
-                    android:id="@+id/linearLayout">
+                    android:id="@+id/fragment_terminos">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:id="@+id/imgqr"
+                        android:src="@drawable/maven_qr"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5:00"
+                        android:layout_marginTop="5dp"
+                        android:textSize="35sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        android:textColor="@color/color_letra"
+                        android:id="@+id/txtcontador" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -168,7 +192,26 @@
                         android:layout_weight="1"
                         android:layout_marginTop="10dp"
                         android:textSize="14sp" />
+
                 </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:imeOptions="actionGo"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:layout_weight="1"
+                    android:text="Usar"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/color_blanco"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:id="@+id/btnusar"
+                    android:background="@drawable/button_verde_maven" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

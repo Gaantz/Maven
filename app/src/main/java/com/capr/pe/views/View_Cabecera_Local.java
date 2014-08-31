@@ -57,8 +57,12 @@ public class View_Cabecera_Local extends RelativeLayout {
             ((TextView) findViewById(R.id.txt_direccion_local)).setText(jsonObject.getString("Direccion"));
             ((TextView) findViewById(R.id.txt_categoria_local)).setText(jsonObject.getString("NombreCategoria"));
 
-            double distance = round(Double.parseDouble(jsonObject.getString("Distancia")), 2);
-            ((TextView) findViewById(R.id.txt_distancia_local)).setText(String.valueOf(distance) + " mts.");
+            if(jsonObject.isNull("Distancia")){
+                findViewById(R.id.txt_distancia_local).setVisibility(GONE);
+            }else{
+                double distance = round(Double.parseDouble(jsonObject.getString("Distancia")), 2);
+                ((TextView) findViewById(R.id.txt_distancia_local)).setText(String.valueOf(distance) + " mts.");
+            }
 
             /*
             SET FONTS
@@ -79,11 +83,11 @@ public class View_Cabecera_Local extends RelativeLayout {
             for (int i = 0; i < jsonArray.length(); i++) {
                 String beneficio = jsonArray.getJSONObject(i).getString("Beneficio");
                 if (beneficio.equals("0")) {
-                    ((ImageView) findViewById(R.id.img_cupon_verde)).setVisibility(View.VISIBLE);
+                    //((ImageView) findViewById(R.id.img_cupon_verde)).setVisibility(View.VISIBLE);
                 } else if (beneficio.equals("1")) {
-                    ((ImageView) findViewById(R.id.img_cupon_azul)).setVisibility(View.VISIBLE);
+                    //((ImageView) findViewById(R.id.img_cupon_azul)).setVisibility(View.VISIBLE);
                 } else if (beneficio.equals("2")) {
-                    ((ImageView) findViewById(R.id.img_cupon_plomo)).setVisibility(View.VISIBLE);
+                    //((ImageView) findViewById(R.id.img_cupon_plomo)).setVisibility(View.VISIBLE);
                 }
             }
         } catch (JSONException e) {

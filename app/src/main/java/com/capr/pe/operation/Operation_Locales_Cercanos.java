@@ -46,6 +46,9 @@ public class Operation_Locales_Cercanos {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
+                        Log.e("Locales",response);
+
                         try {
                             JSONObject responseJsonObject = new JSONObject(response);
                             JSONArray responseJsonArray = responseJsonObject.getJSONArray("locales");
@@ -86,6 +89,8 @@ public class Operation_Locales_Cercanos {
                 params.put("longitud", "-77.049");
                 params.put("token", WS_Maven.TOKEN_MAVEN);
                 params.put("pagina", String.valueOf(page));
+
+                Log.e("Explorar - Locales Cercanos - Params",params.toString());
 
                 return params;
             }

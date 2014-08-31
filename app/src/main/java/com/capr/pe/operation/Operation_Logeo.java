@@ -45,11 +45,13 @@ public class Operation_Logeo {
 
                             int resultado = responseJsonObject.getInt("resultado");
                             if (resultado == 1) {
-                                Usuario_DTO usuario_dto = new Usuario_DTO(responseJsonObject.getJSONObject("datos_usuario"));
+                                Usuario_DTO usuario_dto = new Usuario_DTO();
+                                usuario_dto.setJsonObject(responseJsonObject.getJSONObject("datos_usuario"));
                                 interface_operation_logeo.logearUsuario(true, usuario_dto,"");
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            interface_operation_logeo.logearUsuario(false,null,"Error");
                         }
                     }
                 },
@@ -80,15 +82,18 @@ public class Operation_Logeo {
                     public void onResponse(String response) {
                         try {
                             JSONObject responseJsonObject = new JSONObject(response);
-                            Log.e("LOGIN - ", responseJsonObject.toString());
-
                             int resultado = responseJsonObject.getInt("resultado");
                             if (resultado == 1) {
-                                Usuario_DTO usuario_dto = new Usuario_DTO(responseJsonObject.getJSONObject("datos_usuario"));
+                                Usuario_DTO usuario_dto = new Usuario_DTO();
+                                usuario_dto.setJsonObject(responseJsonObject.getJSONObject("datos_usuario"));
                                 interface_operation_logeo.logearUsuario(true, usuario_dto,"");
+                            }
+                            else{
+                                interface_operation_logeo.logearUsuario(false,null,responseJsonObject.getString("mensaje"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            interface_operation_logeo.logearUsuario(false,null,"Error");
                         }
                     }
                 },

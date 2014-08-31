@@ -49,7 +49,8 @@ public class Operation_Registro {
 
                             int resultado = responseJsonObject.getInt("resultado");
                             if(resultado == 1){
-                                Usuario_DTO usuario_dto = new Usuario_DTO(responseJsonObject.getJSONObject("datos_usuario"));
+                                Usuario_DTO usuario_dto = new Usuario_DTO();
+                                usuario_dto.setJsonObject(responseJsonObject.getJSONObject("datos_usuario"));
                                 interface_operation_registro.registrarUsuario(true,usuario_dto,"Registro Exitoso");
                             }else{
                                 interface_operation_registro.registrarUsuario(false,null,responseJsonObject.getString("mensaje"));

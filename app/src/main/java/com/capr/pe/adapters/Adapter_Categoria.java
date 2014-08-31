@@ -80,8 +80,7 @@ public class Adapter_Categoria extends BaseAdapter {
         holder.txtnombrecategoria.setTypeface(Util_Fonts.setPNASemiBold(context));
         holder.txtcantidadcategoria.setTypeface(Util_Fonts.setPNALight(context));
 
-        int idresimagencategoria = Util_Categorias.getImageCateogry(categoria_dto.getImagencategoria());
-        holder.imgcategoria.setImageResource(idresimagencategoria);
+        holder.imgcategoria.setImageResource(categoria_dto.getImagencategoria());
 
         return convertView;
     }

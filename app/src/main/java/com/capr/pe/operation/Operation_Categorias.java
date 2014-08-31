@@ -12,7 +12,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.capr.pe.beans.Categoria_DTO;
+import com.capr.pe.beans.Empresa_DTO;
 import com.capr.pe.maven.R;
+import com.capr.pe.util.Util_Categorias;
 import com.capr.pe.ws.WS_Maven;
 
 import org.json.JSONArray;
@@ -39,24 +41,45 @@ public class Operation_Categorias {
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest jsonObjectRequest = new StringRequest(
                 Request.Method.POST,
-                WS_Maven.WS_OBTENER_CATEGORIAS,
+                WS_Maven.WS_OBTENER_CATEGORIAS_DOS,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
                             JSONObject responseJsonObject = new JSONObject(response);
-                            JSONArray responseJsonArray = responseJsonObject.getJSONArray("categories");
+                            int success = responseJsonObject.getInt("resultado");
+                            if (success == 1) {
+                                JSONArray responseCategorias = responseJsonObject.getJSONArray("categoria");
+                                JSONArray responseEmpresas = responseJsonObject.getJSONArray("empresa");
 
-                            ArrayList<Categoria_DTO> categoria_dtos = new ArrayList<Categoria_DTO>();
-                            boolean status = true;
+                                ArrayList<Categoria_DTO> categoria_dtos = new ArrayList<Categoria_DTO>();
 
-                            for (int i = 0; i < responseJsonArray.length(); i++) {
-                                JSONObject jsonObject = responseJsonArray.getJSONObject(i);
-                                Categoria_DTO categoria_dto = new Categoria_DTO(jsonObject.getString("Nombre"), "230",Integer.parseInt(jsonObject.getString("Id")));
-                                categoria_dtos.add(categoria_dto);
+                                for (int i = 0; i < responseCategorias.length(); i++) {
+                                    JSONObject jsonObject = responseCategorias.getJSONObject(i);
+                                    Categoria_DTO categoria_dto = new Categoria_DTO();
+                                    categoria_dto.setCodigocategoria(Integer.parseInt(jsonObject.getString("Id")));
+                                    categoria_dto.setNombrecategoria(jsonObject.getString("Nombre"));
+                                    categoria_dto.setCantidadcategoria("5");
+                                    categoria_dto.setImagencategoria(Util_Categorias.getImageCateogry(Integer.parseInt(jsonObject.getString("Id"))));
+                                    categoria_dto.setEmpresa(false);
+                                    categoria_dtos.add(categoria_dto);
+                                }
+
+                                for (int i = 0; i < responseEmpresas.length(); i++) {
+                                    JSONObject jsonObject = responseEmpresas.getJSONObject(i);
+                                    Categoria_DTO categoria_dto = new Categoria_DTO();
+                                    categoria_dto.setCodigocategoria(Integer.parseInt(jsonObject.getString("EmpresaId")));
+                                    categoria_dto.setNombrecategoria(jsonObject.getString("Nombre"));
+                                    categoria_dto.setCantidadcategoria("5");
+                                    categoria_dto.setImagencategoria(R.drawable.placeholder_empresa);
+                                    categoria_dto.setEmpresa(true);
+                                    //categoria_dtos.add(categoria_dto);
+                                }
+
+                                interface_operation_categorias.getCategoryes(true, categoria_dtos);
+                            } else {
+                                interface_operation_categorias.getCategoryes(true, null);
                             }
-                            interface_operation_categorias.getCategoryes(status, categoria_dtos);
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

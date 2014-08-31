@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/fondo_maven"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="fill_horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgopenmenu"
+            android:src="@drawable/menu_lateral"
+            android:adjustViewBounds="true"
+            android:scaleType="matrix"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:lines="1"
+            android:imeOptions="actionGo"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Preguntar "
+            android:textColor="@color/color_blanco"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:id="@+id/btnpreguntar"
+            android:background="@drawable/button_verde_maven"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:id="@+id/containet_preguntas"
+                android:layout_height="fill_parent">
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:textColor="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:text="Cargar Mas"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:id="@+id/btn_cargar_mas" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
